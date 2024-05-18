@@ -26,9 +26,9 @@ export function InputField({
       <FormControl>
         <div className="relative">
           <Input
-            {...field}
             type={type}
             placeholder={placeholder}
+            {...field}
             className={cn(
               "peer h-auto w-full rounded border px-3 py-2 text-base outline-none",
               { "border-red-500": error },

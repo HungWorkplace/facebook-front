@@ -5,17 +5,13 @@ import { type Control, useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Form, FormField } from "@/components/ui/form";
 import { InputField } from "./signup/InputField";
-import { formSchema } from "@/lib/formSchema";
+import { FormSchema } from "@/lib/formSchema";
 
 // # Component
 export default function SignUpForm() {
-  const form = useForm<formSchema>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<FormSchema>({
+    resolver: zodResolver(FormSchema),
     mode: "onTouched",
-    defaultValues: {
-      firstName: "",
-      surname: "",
-    },
   });
 
   const {
@@ -24,7 +20,7 @@ export default function SignUpForm() {
     handleSubmit,
   } = form;
 
-  const onSubmit = (values: formSchema) => {
+  const onSubmit = (values: FormSchema) => {
     console.log("Hello");
     console.log(values);
   };
@@ -75,7 +71,7 @@ export default function SignUpForm() {
             />
           )}
         />
-
+        {/* 
         <FormField
           control={control}
           name="password"
@@ -87,7 +83,7 @@ export default function SignUpForm() {
               error={errors.password}
             />
           )}
-        />
+        /> */}
 
         {/* birthday */}
 
