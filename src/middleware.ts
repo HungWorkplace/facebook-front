@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export function middleware(request: NextRequest) {
-  let cookie = request.cookies.get("jwt");
+  const cookie = request.cookies.get("jwt");
 
   if (!cookie) {
-    return NextResponse.rewrite(new URL("/auth", request.url));
+    return NextResponse.redirect(new URL("/auth/login", request.url));
   }
 
   return NextResponse.next();

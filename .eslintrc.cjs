@@ -5,7 +5,7 @@ module.exports = {
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react-hooks/recommended",
-    "next/core-web-vitals" // from next.js
+    "next/core-web-vitals", // from next.js
   ],
   ignorePatterns: ["dist", ".eslintrc.cjs"],
   parser: "@typescript-eslint/parser",
@@ -26,5 +26,11 @@ module.exports = {
 
     // if-else or code block from "error" to "warn"
     "no-empty": "warn",
+
+    // force use const as much as possible
+    "prefer-const": "error",
+
+    // allow use _ as unused variable
+    "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
   },
 };
