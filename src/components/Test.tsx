@@ -6,7 +6,7 @@ interface TestProps {}
 
 // # Component
 export default function Test() {
-  const user = useUser();
+  const { user } = useUser();
 
   return <div>{user && user.email}</div>;
 }

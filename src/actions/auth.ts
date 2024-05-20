@@ -5,21 +5,21 @@ import { cookies } from "next/headers";
 import { z } from "zod";
 import axios from "axios";
 import { url } from "@/lib/urls";
+import { User } from "@/lib/definitions";
 
-interface LoginState {
-  errors: {
+type LoginState = {
+  errors?: {
     email?: string[];
     password?: string[];
     response?: string;
   };
-}
+  user?: User;
+};
 
 type ResponseSuccess = {
   message: string;
-  data: {
-    user: any;
-    token: string;
-  };
+  user: User;
+  token: string;
 };
 
 type ResponseError = {
@@ -71,13 +71,15 @@ export async function login(
     // if it success
     const data = res.data as ResponseSuccess;
 
-    const expires = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000);
-    cookies().set("jwt", data.data.token, { expires, httpOnly: true });
+    // set token to the cookie
+    const day = process.env.JWT_EXPIRES_DAY || 30;
+    const expires = new Date(Date.now() + Number(day) * 24 * 60 * 60 * 1000);
+    cookies().set("jwt", data.token, { expires, httpOnly: true });
+
+    return { user: data.user };
   } catch (error) {
     return { errors: { response: "An error occurred. Please try again." } };
   }
-
-  redirect("/");
 }
 
 export async function logout() {

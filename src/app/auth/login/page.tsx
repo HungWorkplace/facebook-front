@@ -1,5 +1,5 @@
 import Image from "next/image";
-import logo from "/public/facebook.svg";
+import logo from "/public/facebook-text.svg";
 import LoginForm from "@/features/auth/LoginForm";
 import Link from "next/link";
 
@@ -26,14 +26,14 @@ export default function LoginPage() {
         <div className="rounded-lg bg-white p-4 pb-7 text-center shadow-xl">
           <div className="mb-4 text-lg">Log in to Facebook</div>
           <LoginForm />
-          <div className="text-center">
+          {/* <div className="text-center">
             <a
               href=""
               className="inline-block py-5  text-sm  text-primary hover:underline"
             >
               Forgotten password?
             </a>
-          </div>
+          </div> */}
 
           <div className="border-t pt-7">
             <Link

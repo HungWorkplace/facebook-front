@@ -8,18 +8,12 @@ import React, {
 } from "react";
 import axios from "axios";
 import { url } from "@/lib/urls";
+import { User } from "@/lib/definitions";
+import { usePathname } from "next/navigation";
 
-// Define the shape of the user object
-type User = {
-  id: string;
-  firstName: string;
-  surName: string;
-  phone: string;
-  email: string;
-  password: string;
-  birthday: Date;
-  gender: "male" | "female" | "other";
-  createdAt: Date;
+type UserContextType = {
+  user: User | null;
+  setUser: (user: User | null) => void;
 };
 
 type Response =
@@ -31,14 +25,17 @@ type Response =
     };
 
 // Create the context
-export const UserContext = createContext<User | null>(null);
+export const UserContext = createContext<UserContextType | null>(null);
 
 // Create a provider component
 export const UserProvider = ({ children }: PropsWithChildren) => {
   const [user, setUser] = useState<User | null>(null);
+  const pathname = usePathname();
 
   // Fetch the user from the database on component mount
   useEffect(() => {
+    if (pathname.startsWith("/auth")) return;
+
     const fetchUser = async () => {
       try {
         const res = await axios.get<Response>(url.profile.get, {
@@ -56,11 +53,13 @@ export const UserProvider = ({ children }: PropsWithChildren) => {
     fetchUser();
   }, []);
 
-  return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
+  const value = { user, setUser };
+
+  return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
 
 // Create a custom hook to consume the user context
 export const useUser = () => {
-  const user = React.useContext(UserContext);
+  const user = React.useContext<UserContextType | null>(UserContext)!;
   return user;
 };

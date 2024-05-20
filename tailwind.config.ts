@@ -52,6 +52,8 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // #f2f2f2
+        "hover-banner": "rgb(242 242 242 / <alpha-value>)",
       },
       borderRadius: {
         lg: "var(--radius)",

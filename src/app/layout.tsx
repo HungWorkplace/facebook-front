@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { inter, roboto } from "@/styles/fonts";
+import { roboto } from "@/styles/fonts";
 import "@/styles/globals.css";
 import { UserProvider } from "@/context";
 
@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${roboto.variable}`}>
+      <body className={`${roboto.variable}`}>
         <UserProvider>{children}</UserProvider>
       </body>
     </html>

@@ -8,7 +8,7 @@
     "esModuleInterop": true,
     "module": "esnext",
     // change "bundler" to "Node" for using react-hook-form
-    "moduleResolution": "Node",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",

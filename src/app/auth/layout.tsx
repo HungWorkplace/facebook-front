@@ -6,7 +6,7 @@ export default function AuthLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="bg-[#f0f2f5] font-roboto">
+    <div className="font-roboto">
       {children}
       <Footer />
     </div>

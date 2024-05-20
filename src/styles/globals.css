@@ -4,8 +4,8 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 216 20% 95%; /* #f0f2f5 */
+    --foreground: 222.2 84% 4.9%; /* #020817*/
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -17,7 +17,7 @@
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary-foreground: 220 3% 41%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
@@ -30,9 +30,11 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 217.17 100% 51.57%;
 
     --radius: 0.5rem;
+    --shadow-2: rgba(0, 0, 0, 0.2);
+    --secondary-text: #65676b;
   }
 
   .dark {
@@ -66,11 +68,31 @@
   }
 }
 
+.test {
+  color: hsl(220, 3%, 41%);
+}
+
 @layer base {
   * {
     @apply border-border;
   }
+
+  html {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .shadow-popover {
+    box-shadow:
+      0 12px 28px 0 var(--shadow-2),
+      0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  }
+  .shadow-card {
+    box-shadow: 0 1px 2px var(--shadow-2);
   }
 }

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import logo from "/public/facebook.svg";
+import logo from "/public/facebook-text.svg";
 import SignUpForm from "@/features/auth/SignUpForm";
 import Test2 from "@/components/Test2";
 
@@ -23,8 +23,6 @@ export default function SignUpPage() {
         <main className="p-4">
           <SignUpForm />
         </main>
-
-        <Test2 />
       </div>
     </div>
   );
