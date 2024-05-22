@@ -37,7 +37,7 @@ export default function LoginPage() {
 
           <div className="border-t pt-7">
             <Link
-              href={"/auth/signup"}
+              href={"/signup"}
               className="mx-auto inline-flex h-12 items-center justify-center rounded-md bg-[#42b72a] px-4 font-semibold text-white hover:bg-[#36a420]"
             >
               Create new account

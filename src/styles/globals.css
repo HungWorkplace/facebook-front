@@ -35,6 +35,7 @@
     --radius: 0.5rem;
     --shadow-2: rgba(0, 0, 0, 0.2);
     --secondary-text: #65676b;
+    --hover-item: 216 10% 90%;
   }
 
   .dark {
@@ -65,12 +66,14 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
+
+    --top-to-main: 5rem;
   }
 }
 
-.test {
+/* .test {
   color: hsl(220, 3%, 41%);
-}
+} */
 
 @layer base {
   * {
@@ -94,5 +97,9 @@
   }
   .shadow-card {
     box-shadow: 0 1px 2px var(--shadow-2);
+  }
+
+  .sidebar-top {
+    top: var(--top-to-main);
   }
 }

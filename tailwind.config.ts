@@ -54,6 +54,7 @@ const config = {
         },
         // #f2f2f2
         "hover-banner": "rgb(242 242 242 / <alpha-value>)",
+        "hover-item": "hsl(var(--hover-item) / <alpha-value>)",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -77,6 +78,14 @@ const config = {
       fontFamily: {
         roboto: ["var(--font-roboto)"],
       },
+    },
+    screens: {
+      "700": "700px",
+      "900": "900px",
+      "1100": "1100px",
+      "1310": "1310px",
+      "1460": "1460px",
+      "1920": "1920px",
     },
   },
   plugins: [require("tailwindcss-animate")],

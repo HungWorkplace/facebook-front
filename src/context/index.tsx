@@ -34,7 +34,7 @@ export const UserProvider = ({ children }: PropsWithChildren) => {
 
   // Fetch the user from the database on component mount
   useEffect(() => {
-    if (pathname.startsWith("/auth")) return;
+    if (pathname === "login" || pathname === "signup") return;
 
     const fetchUser = async () => {
       try {

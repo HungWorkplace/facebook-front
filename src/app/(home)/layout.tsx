@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { roboto } from "@/styles/fonts";
 import "@/styles/globals.css";
 import { UserProvider } from "@/context";
+import Navigation from "@/features/navigation/Navigation";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +15,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.variable}`}>
-        <UserProvider>{children}</UserProvider>
+      <body>
+        <UserProvider>
+          <Navigation />
+          {children}
+        </UserProvider>
       </body>
     </html>
   );

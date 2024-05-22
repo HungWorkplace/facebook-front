@@ -5,7 +5,7 @@ import {
 } from "@/components/ui/popover";
 import Image from "next/image";
 import * as actions from "@/actions/auth";
-import UserAvatar from "../../components/Avatar";
+import UserAvatar from "../../components/UserAvatar";
 import CardInfo from "./CardInfor";
 // import { MdDarkMode } from "react-icons/md";
 // import { BsFillQuestionCircleFill } from "react-icons/bs";
@@ -29,7 +29,7 @@ export default function YourProfile() {
         <form action={actions.logout} className="w-full px-4">
           <button
             type="submit"
-            className="hover:bg-hover-banner inline-flex w-full items-center gap-3 rounded-lg p-2 outline-none"
+            className="inline-flex w-full items-center gap-3 rounded-lg p-2 outline-none hover:bg-hover-banner"
           >
             <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#e4e6ec] text-[#1c1d21]">
               <Image src={"logout.svg"} alt="logout" width={20} height={20} />

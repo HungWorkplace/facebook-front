@@ -8,22 +8,20 @@ import { HamburgerIcon, HomeIcon } from "./navigation-icons";
 // # Component
 export default function Navigation() {
   return (
-    <div className="fixed left-0 top-0 flex h-14 w-full items-center justify-between bg-white px-4 py-1 text-[#65676b] shadow">
+    <nav className="fixed left-0 top-0 z-10 flex h-14 w-full items-center justify-between bg-white px-4 py-1 text-[#65676b] shadow">
       {/* left side */}
       <div className="flex h-full items-center">
         <div className="flex gap-2">
           <FaFacebook size={40} className="text-primary" />
-          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-background">
-            <HiMagnifyingGlass size={18} />
-          </span>
+          <Search />
         </div>
       </div>
 
       {/* Center */}
-      <div className="flex h-full max-w-[42.5rem] flex-1 pl-8 md:justify-center">
+      <div className="flex h-full max-w-[42.5rem] flex-1 pl-8 700:justify-center">
         <Button
           variant={"ghost"}
-          className="relative mr-2 hidden h-full w-full max-w-24 rounded-lg p-0 text-center text-primary hover:bg-transparent hover:text-primary md:inline-flex"
+          className="relative mr-2 hidden h-full w-full max-w-24 rounded-lg p-0 text-center text-primary hover:bg-transparent hover:text-primary 700:inline-flex"
         >
           <HomeIcon />
           <div className="absolute inset-x-0 -bottom-1 z-10 h-[0.1875rem] bg-primary"></div>
@@ -31,7 +29,7 @@ export default function Navigation() {
 
         <Button
           variant={"ghost"}
-          className="hover:bg-hover-banner h-full w-full max-w-12 rounded-lg p-0 text-center hover:text-current md:max-w-24 lg:hidden"
+          className="h-full w-full max-w-12 rounded-lg p-0 text-center hover:bg-hover-banner hover:text-current 700:max-w-24 1100:hidden"
         >
           <HamburgerIcon />
         </Button>
@@ -48,6 +46,14 @@ export default function Navigation() {
 
         <YourProfile />
       </div>
-    </div>
+    </nav>
+  );
+}
+
+function Search() {
+  return (
+    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-background">
+      <HiMagnifyingGlass size={18} />
+    </span>
   );
 }

@@ -1,7 +1,6 @@
 import Image from "next/image";
 import logo from "/public/facebook-text.svg";
 import SignUpForm from "@/features/auth/SignUpForm";
-import Test2 from "@/components/Test2";
 
 // # Component
 export default function SignUpPage() {
