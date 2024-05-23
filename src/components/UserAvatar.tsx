@@ -15,12 +15,7 @@ export default async function UserAvatar({ className }: UserAvatarProps) {
     (user?.surname?.[0].toUpperCase() ?? "");
 
   return (
-    <Avatar
-      className={cn(
-        "cursor-pointer transition-all active:scale-[.98]",
-        className,
-      )}
-    >
+    <Avatar className={cn("press cursor-pointer", className)}>
       <AvatarImage
         src={user?.avatar ? user.avatar : "/no-avatar.jpg"}
         className="transition-all hover:brightness-90 active:brightness-75"

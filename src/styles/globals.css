@@ -14,10 +14,13 @@
     --popover-foreground: 222.2 84% 4.9%;
 
     --primary: 217.17 100% 51.57%; /* #0866ff */
-    --primary-foreground: 210 40% 98%;
+    --primary-foreground: #050505;
 
     --secondary: 210 40% 96.1%;
-    --secondary-foreground: 220 3% 41%;
+    --secondary-foreground: #65676b;
+
+    --secondary-icon: 220 3% 41%; /* #65676b;*/
+    --secondary-button-background: 223 15% 91%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
@@ -34,8 +37,10 @@
 
     --radius: 0.5rem;
     --shadow-2: rgba(0, 0, 0, 0.2);
-    --secondary-icon: 220 3% 41%; /* #65676b;*/
     --hover-item: 216 10% 90%;
+    --hover-icon-button: #d8dadf;
+    --overlay: 0 0% 96%;
+    --disabled-button-text: #bcc0c4;
   }
 
   .dark {
@@ -71,9 +76,9 @@
   }
 }
 
-/* .test {
-  color: hsl(220, 3%, 41%);
-} */
+.test {
+  color: 223 15% 91%;
+}
 
 @layer base {
   * {
@@ -97,5 +102,9 @@
 
   .sidebar-top {
     top: var(--top-to-main);
+  }
+
+  .press {
+    @apply transition-all active:scale-[.98];
   }
 }

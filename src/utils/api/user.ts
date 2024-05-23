@@ -1,8 +1,9 @@
 import { User } from "@/utils/definitions";
 import { getToken } from "@/utils/api/getToken";
 import { url } from "@/utils/urls";
+import { cache } from "react";
 
-export const fetchUser = async () => {
+export const fetchUser = cache(async () => {
   const token = getToken();
 
   if (!token) {
@@ -21,4 +22,4 @@ export const fetchUser = async () => {
   } catch (error) {
     console.error(error);
   }
-};
+});

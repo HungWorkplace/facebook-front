@@ -9,7 +9,7 @@ import ActiveLink from "./ActiveLink";
 // # Component
 export default function Navigation() {
   return (
-    <nav className="text-secondary-icon fixed left-0 top-0 z-10 flex h-14 w-full items-center justify-between bg-white px-4 py-1 shadow">
+    <nav className="fixed left-0 top-0 z-10 flex h-14 w-full items-center justify-between bg-white px-4 py-1 text-secondary-icon shadow">
       {/* left side */}
       <div className="flex h-full items-center">
         <div className="flex gap-2">
@@ -20,14 +20,6 @@ export default function Navigation() {
 
       {/* Center */}
       <div className="flex h-full max-w-[42.5rem] flex-1 pl-8 700:justify-center">
-        {/* <Button
-          variant={"ghost"}
-          className="relative mr-2 hidden h-full w-full max-w-24 rounded-lg p-0 text-center text-primary hover:bg-transparent hover:text-primary 700:inline-flex"
-        >
-          <HomeIcon />
-          <div className="absolute inset-x-0 -bottom-1 z-10 h-[0.1875rem] bg-primary"></div>
-        </Button> */}
-
         <ActiveLink
           href="/"
           active={<HomeIcon />}
@@ -41,13 +33,6 @@ export default function Navigation() {
           inactive={<HamburgerIcon />}
           className="max-w-12 700:max-w-24 1100:hidden"
         />
-
-        {/* <Button
-          variant={"ghost"}
-          className="h-full w-full max-w-12 rounded-lg p-0 text-center hover:bg-hover-banner hover:text-current 700:max-w-24 1100:hidden"
-        >
-          <HamburgerIcon />
-        </Button> */}
       </div>
 
       {/* right side*/}

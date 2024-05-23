@@ -1,4 +1,5 @@
-import PostComposer from "../post-composer/PostComposer";
+import ActiveComposer from "../post-composer/ActiveComposer";
+import Test from "./Test";
 
 interface NewsFeedProps {
   className?: string;
@@ -8,7 +9,8 @@ interface NewsFeedProps {
 export default function NewsFeed({ className }: NewsFeedProps) {
   return (
     <div className={className}>
-      <PostComposer />
+      <ActiveComposer />
+      <Test />
     </div>
   );
 }

@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import Card from "@/components/layouts/Card";
 import StatusInput from "./StatusInput";
 // # Component
-export default function PostComposer() {
+export default function ActiveComposer() {
   return (
     <Card>
       <div className="flex gap-2 border-b pb-3">

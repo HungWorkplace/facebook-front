@@ -11,9 +11,9 @@ export default function AuthLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <main className={`${roboto.className}`}>
+    <body className={`${roboto.className}`}>
       <div className="bg-background">{children}</div>
       <Footer />
-    </main>
+    </body>
   );
 }

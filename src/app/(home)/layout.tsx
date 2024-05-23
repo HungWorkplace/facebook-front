@@ -13,9 +13,9 @@ export default function HomeLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="bg-background text-foreground">
+    <body className="bg-background">
       <Navigation />
       <div className="mt-14">{children}</div>
-    </main>
+    </body>
   );
 }

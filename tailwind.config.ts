@@ -26,12 +26,15 @@ const config = {
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          foreground: "var(--primary-foreground)",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          foreground: "var(--secondary-foreground)",
           icon: "hsl(var(--secondary-icon) / <alpha-value>)",
+          button: {
+            background: "hsl(var(--secondary-button-background))",
+          },
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -53,9 +56,19 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // #f2f2f2
-        "hover-banner": "rgb(242 242 242 / <alpha-value>)",
-        "hover-item": "hsl(var(--hover-item) / <alpha-value>)",
+        overlay: "hsl(var(--overlay) / <alpha-value>)",
+        hover: {
+          banner: "rgb(242 242 242 / <alpha-value>)",
+          item: "hsl(var(--hover-item) / <alpha-value>)",
+          icon: {
+            button: "var(--hover-icon-button)",
+          },
+        },
+        disabled: {
+          button: {
+            text: "var(--disabled-button-text)",
+          },
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -81,6 +94,7 @@ const config = {
       },
     },
     screens: {
+      "584": "584px",
       "700": "700px",
       "900": "900px",
       "1100": "1100px",

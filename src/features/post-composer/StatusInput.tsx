@@ -1,16 +1,6 @@
 import { fetchUser } from "@/utils/api/user";
-import {
-  Dialog,
-  DialogPortal,
-  DialogOverlay,
-  DialogClose,
-  DialogTrigger,
-  DialogContent,
-  DialogHeader,
-  DialogFooter,
-  DialogTitle,
-  DialogDescription,
-} from "@/features/post-composer/dialog";
+import { Dialog, DialogTrigger } from "@/features/post-composer/dialog";
+import PostDialog from "./PostDialog";
 
 interface StatusInputProps {
   className?: string;
@@ -27,15 +17,8 @@ export default async function StatusInput({ className }: StatusInputProps) {
           What's on your mind, {user?.firstName}?
         </div>
       </DialogTrigger>
-      <DialogContent>
-        <DialogHeader>
-          <DialogTitle>Are you absolutely sure?</DialogTitle>
-          <DialogDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
-          </DialogDescription>
-        </DialogHeader>
-      </DialogContent>
+
+      <PostDialog />
     </Dialog>
   );
 }

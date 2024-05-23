@@ -26,8 +26,7 @@ export default function Home() {
         <div className={cn("flex-1 pt-6", "900:px-8")}>
           <NewsFeed
             className={cn(
-              "mx-auto w-[42.5rem]",
-              // "max-w-[42.5rem]",
+              "mx-auto w-full max-w-[42.5rem]",
               "1310:w-[42.5rem] 1310:max-w-none",
             )}
           />
