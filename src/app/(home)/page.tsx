@@ -8,7 +8,6 @@ export default function Home() {
     <>
       <div
         className={cn(
-          "mt-14",
           "900:flex",
           "1310:gap-8",
           "1920:mx-auto 1920:w-[91.5rem]",
@@ -24,7 +23,7 @@ export default function Home() {
 
         {/* 42.5rem 680px*/}
         {/* 31.25rem 500px */}
-        <div className={cn("mt-6 flex-1", "900:px-8")}>
+        <div className={cn("flex-1 pt-6", "900:px-8")}>
           <NewsFeed
             className={cn(
               "mx-auto w-[42.5rem]",

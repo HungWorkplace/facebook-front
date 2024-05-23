@@ -5,7 +5,7 @@ import SignUpForm from "@/features/auth/SignUpForm";
 // # Component
 export default function SignUpPage() {
   return (
-    <div className="mb-14">
+    <div className="pb-14">
       <Image
         src={logo}
         alt="Facebook"

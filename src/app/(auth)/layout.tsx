@@ -1,24 +1,19 @@
 import { Metadata } from "next";
-import "@/styles/globals.css";
 import { Footer } from "@/features/auth/Footer";
 import { roboto } from "@/styles/fonts";
-import { UserProvider } from "@/context";
 
 export const metadata: Metadata = {
-  title: "Authenticating user",
+  title: "Facebook - log in or sign up",
+  description: "Connect with friends and the world around you on Facebook.",
 };
 
-export default function RootLayout({
+export default function AuthLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${roboto.className}`}>
-      <body>
-        <UserProvider>
-          {children}
-          <Footer />
-        </UserProvider>
-      </body>
-    </html>
+    <main className={`${roboto.className}`}>
+      <div className="bg-background">{children}</div>
+      <Footer />
+    </main>
   );
 }

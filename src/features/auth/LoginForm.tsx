@@ -5,11 +5,9 @@ import { PiWarningFill } from "react-icons/pi";
 import { useFormState, useFormStatus } from "react-dom";
 import * as actions from "@/actions/auth";
 import { useRouter } from "next/navigation";
-import { useUser } from "@/context";
 
 export default function LoginForm() {
   const [formState, action] = useFormState(actions.login, { errors: {} });
-  const { setUser } = useUser();
   const router = useRouter();
 
   const emailError = formState.errors?.email;
@@ -17,7 +15,6 @@ export default function LoginForm() {
   const responseError = formState.errors?.response;
 
   if (formState.user) {
-    setUser(formState.user);
     router.push("/");
   }
 

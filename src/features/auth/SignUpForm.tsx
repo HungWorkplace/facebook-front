@@ -9,14 +9,13 @@ import RadioField from "./signup/RadioField";
 import Link from "next/link";
 import axios from "axios";
 import { useState } from "react";
-import { User } from "@/lib/definitions";
-import { url } from "@/lib/urls";
+import { User } from "@/utils/definitions";
+import { url } from "@/utils/urls";
 import { CgSpinner } from "react-icons/cg";
 import { useRouter } from "next/navigation";
 import { FormName } from "./signup/FormName";
 import { FormBirth } from "./signup/FormBirth";
 import FormCredentials from "./signup/FormCredentials";
-import { useUser } from "@/context";
 
 type ResponseType = {
   message?: string;
@@ -30,7 +29,6 @@ export default function SignUpForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [resError, setResError] = useState<undefined | string>();
   const router = useRouter();
-  const { setUser } = useUser();
 
   const form = useForm<FormSchema>({
     resolver: zodResolver(FormSchema),
@@ -79,7 +77,6 @@ export default function SignUpForm() {
       }
 
       if (res.data.user) {
-        setUser(res.data.user);
         router.push("/");
       }
     } catch (error) {

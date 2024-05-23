@@ -1,15 +1,13 @@
-"use client";
-
-import { useUser } from "@/context";
 import { cn } from "@/lib/utils";
+import { fetchUser } from "@/utils/api/user";
 
 interface UserNameProps {
   className?: string;
 }
 
 // # Component
-export default function UserName({ className }: UserNameProps) {
-  const { user } = useUser();
+export default async function UserName({ className }: UserNameProps) {
+  const user = await fetchUser();
 
   return (
     <p

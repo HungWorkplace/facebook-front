@@ -1,16 +1,14 @@
-"use client";
-
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { useUser } from "@/context";
 import { cn } from "@/lib/utils";
+import { fetchUser } from "@/utils/api/user";
 
 interface UserAvatarProps {
   className?: string;
 }
 
 // # Component
-export default function UserAvatar({ className }: UserAvatarProps) {
-  const { user } = useUser();
+export default async function UserAvatar({ className }: UserAvatarProps) {
+  const user = await fetchUser();
 
   const fallbackName =
     (user?.firstName?.[0].toUpperCase() ?? "") +

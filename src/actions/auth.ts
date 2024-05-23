@@ -4,8 +4,8 @@ import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import { z } from "zod";
 import axios from "axios";
-import { url } from "@/lib/urls";
-import { User } from "@/lib/definitions";
+import { url } from "@/utils/urls";
+import { User } from "@/utils/definitions";
 
 type LoginState = {
   errors?: {
@@ -84,5 +84,5 @@ export async function login(
 
 export async function logout() {
   cookies().delete("jwt");
-  redirect("/");
+  redirect("/login");
 }

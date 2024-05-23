@@ -7,7 +7,7 @@ export default function Profile() {
   return (
     <ItemSideBar.Wrap>
       <ItemSideBar.Content>
-        <UserAvatar className="h-7 w-7" />
+        <UserAvatar className="h-9 w-9" />
         <UserName className="text-sm" />
       </ItemSideBar.Content>
     </ItemSideBar.Wrap>
