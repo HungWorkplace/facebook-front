@@ -4,14 +4,23 @@ import * as React from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 
 import { cn } from "@/lib/utils";
-
-const Dialog = DialogPrimitive.Root;
+import { useDialogContext } from "../context/dialog-context";
 
 const DialogTrigger = DialogPrimitive.Trigger;
 
 const DialogPortal = DialogPrimitive.Portal;
 
 const DialogClose = DialogPrimitive.Close;
+
+const Dialog = ({ children }: React.PropsWithChildren) => {
+  const { openDialog, setOpenDialog } = useDialogContext();
+
+  return (
+    <DialogPrimitive.Root open={openDialog} onOpenChange={setOpenDialog}>
+      {children}
+    </DialogPrimitive.Root>
+  );
+};
 
 const DialogOverlay = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Overlay>,
@@ -20,7 +29,7 @@ const DialogOverlay = React.forwardRef<
   <DialogPrimitive.Overlay
     ref={ref}
     className={cn(
-      "fixed inset-0 z-40 flex items-center justify-center bg-overlay/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+      "fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center overflow-y-auto bg-overlay/80 px-2 pt-14 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
       className,
     )}
     {...props}
@@ -34,14 +43,19 @@ const DialogContent = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <DialogPortal>
     <DialogOverlay>
-      <DialogPrimitive.Content
-        ref={ref}
-        onOpenAutoFocus={(e) => e.preventDefault()}
-        className={cn("w-[26rem] bg-white shadow-lg outline-none", className)}
-        {...props}
-      >
-        {children}
-      </DialogPrimitive.Content>
+      <div className="grid place-content-center">
+        <DialogPrimitive.Content
+          ref={ref}
+          onOpenAutoFocus={(e) => e.preventDefault()}
+          className={cn(
+            "h-full min-h-[26.75rem] w-[26rem] overflow-hidden bg-white shadow-lg outline-none",
+            className,
+          )}
+          {...props}
+        >
+          {children}
+        </DialogPrimitive.Content>
+      </div>
     </DialogOverlay>
   </DialogPortal>
 ));

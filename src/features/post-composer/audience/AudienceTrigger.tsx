@@ -1,12 +1,12 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { useCarousel } from "@/components/ui/carousel";
 import { FaLock } from "react-icons/fa6";
 import { FaCaretDown } from "react-icons/fa6";
+import { useCarousel } from "../custom/carousel";
 
 // # Component
-export default function PostAudience() {
+export default function AudienceTrigger() {
   const { scrollNext } = useCarousel();
 
   return (

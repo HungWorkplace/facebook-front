@@ -1,4 +1,4 @@
-import ActiveComposer from "../post-composer/ActiveComposer";
+import ActiveComposer from "../post-composer/trigger/CardComposer";
 
 interface NewsFeedProps {
   className?: string;

@@ -13,6 +13,10 @@ interface UserContextProps {
   children: React.ReactNode;
 }
 
+interface ResponseValue {
+  user: User;
+}
+
 const UserContext = createContext<ContextValue | null>(null);
 
 const UserProvider = ({ children }: UserContextProps) => {
@@ -22,10 +26,11 @@ const UserProvider = ({ children }: UserContextProps) => {
     // Fetch the user from the API
     const fetchUser = async () => {
       try {
-        const response = await axios.get<User>(url.profile.get, {
+        const response = await axios.get<ResponseValue>(url.profile.get, {
           withCredentials: true,
         });
-        setUser(response.data);
+
+        setUser(response.data.user);
       } catch (error) {
         console.error("Error fetching user", error);
       }

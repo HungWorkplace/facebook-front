@@ -37,8 +37,11 @@
 
     --radius: 0.5rem;
     --shadow-2: rgba(0, 0, 0, 0.2);
-    --hover-item: 216 10% 90%;
+
+    --hover-item: #e3e5e8;
+    --hover-item-radio: #f2f2f2;
     --hover-icon-button: #d8dadf;
+
     --overlay: 0 0% 96%;
     --disabled-button-text: #bcc0c4;
     --card-background-flat: #f7f8fa;
@@ -78,7 +81,7 @@
 }
 
 .test {
-  color: 223 15% 91%;
+  color: #e3e5e8;
 }
 
 @layer base {
@@ -92,6 +95,7 @@
 }
 
 @layer utilities {
+  /* Shadows */
   .shadow-popover {
     box-shadow:
       0 12px 28px 0 var(--shadow-2),
