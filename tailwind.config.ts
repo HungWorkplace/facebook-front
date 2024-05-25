@@ -55,6 +55,9 @@ const config = {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+          background: {
+            flat: "var(--card-background-flat)",
+          },
         },
         overlay: "hsl(var(--overlay) / <alpha-value>)",
         hover: {

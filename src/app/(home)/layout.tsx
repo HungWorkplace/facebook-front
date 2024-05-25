@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 import Navigation from "@/features/navigation/Navigation";
+import { CounterStoreProvider } from "@/stores/zustand/store-provider";
+import { UserProvider } from "@/context/user-context";
 
 export const metadata: Metadata = {
   title: "Facebook",
@@ -14,8 +16,12 @@ export default function HomeLayout({
 }>) {
   return (
     <body className="bg-background">
-      <Navigation />
-      <div className="mt-14">{children}</div>
+      <CounterStoreProvider>
+        <UserProvider>
+          <Navigation />
+          <div className="mt-14">{children}</div>
+        </UserProvider>
+      </CounterStoreProvider>
     </body>
   );
 }

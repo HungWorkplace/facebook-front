@@ -1,6 +1,6 @@
 import { fetchUser } from "@/utils/api/user";
 import { Dialog, DialogTrigger } from "@/features/post-composer/dialog";
-import PostDialog from "./PostDialog";
+import RootDialog from "./RootDialog";
 
 interface StatusInputProps {
   className?: string;
@@ -18,7 +18,7 @@ export default async function StatusInput({ className }: StatusInputProps) {
         </div>
       </DialogTrigger>
 
-      <PostDialog />
+      <RootDialog />
     </Dialog>
   );
 }

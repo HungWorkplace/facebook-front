@@ -8,7 +8,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       {/* Can wrap Context API in here */}
-      <body>{children}</body>
+      {/* Don't duplicate <body> */}
+      {children}
     </html>
   );
 }
