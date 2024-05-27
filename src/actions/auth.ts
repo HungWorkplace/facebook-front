@@ -5,7 +5,7 @@ import { cookies } from "next/headers";
 import { z } from "zod";
 import axios from "axios";
 import { url } from "@/utils/urls";
-import { User } from "@/utils/definitions";
+import { User } from "@/types/api";
 
 type LoginState = {
   errors?: {

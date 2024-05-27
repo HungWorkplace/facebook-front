@@ -14,16 +14,16 @@ interface UserContentProps {
 export default function UserContent({ className }: UserContentProps) {
   const { user } = useUser();
   const { openPhoto } = useDialogContext();
-  const [content, setContent] = useState("");
-  const [changeTextSize, setChangeTextSize] = useState<"base" | "lg">("lg");
+  const [changeTextSize, setChangeTextSize] = useState<
+    "text-base" | "text-2xl"
+  >("text-2xl");
+  const [showPlaceholder, setShowPlaceholder] = useState(true);
 
-  const handleChangeInput = (e: React.FormEvent<HTMLDivElement>) => {
-    const newContent = e.target.textContent;
-    if (newContent.length <= 80) {
-      setContent(newContent);
-    } else {
-      console.log("Vượt quá 80 ký tự!");
-    }
+  const handleInput = (e: React.FormEvent<HTMLDivElement>) => {
+    const newContent = e.currentTarget.textContent || "";
+
+    setChangeTextSize(newContent.length > 80 ? "text-base" : "text-2xl");
+    setShowPlaceholder(newContent.length === 0);
   };
 
   return (
@@ -32,28 +32,22 @@ export default function UserContent({ className }: UserContentProps) {
       <div className="flex w-full flex-col">
         {/* Input */}
         <div
-          className={cn(
-            "relative flex-1 pb-4",
-            {
-              "text-2xl": changeTextSize === "lg",
-            },
-            openPhoto
-              ? "text-base"
-              : changeTextSize === "base"
-                ? "text-base"
-                : "text-2xl",
-          )}
+          className={cn("relative flex-1 pb-4", changeTextSize, {
+            "text-base": openPhoto,
+          })}
         >
-          <p className="absolute left-0 top-0 z-10 text-secondary-foreground">
-            What's on your mind, {user?.firstName}?
-          </p>
+          {showPlaceholder && (
+            <p className="absolute left-0 top-0 z-10 text-secondary-foreground">
+              What's on your mind, {user?.firstName}?
+            </p>
+          )}
 
           <div
             contentEditable
+            suppressContentEditableWarning
             autoFocus
             tabIndex={0}
-            onInput={handleChangeInput}
-            dangerouslySetInnerHTML={{ __html: content }}
+            onInput={handleInput}
             className="relative z-20 text-primary-foreground outline-none"
           ></div>
         </div>

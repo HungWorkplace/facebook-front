@@ -1,10 +1,5 @@
 import { X } from "lucide-react";
-import {
-  DialogHeader,
-  DialogTitle,
-  DialogClose,
-  DialogFooter,
-} from "./custom/dialog";
+import { DialogClose, DialogFooter } from "./custom/dialog";
 
 import UserAvatar from "@/components/UserAvatar";
 import { fetchUser } from "@/utils/api/user";

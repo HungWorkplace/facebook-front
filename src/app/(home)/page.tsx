@@ -1,7 +1,8 @@
-import NewsFeed from "@/features/news-feed/NewsFeed";
 import Contacts from "@/features/contacts/Contacts";
 import ShortCuts from "@/features/shortcuts/Shortcuts";
 import { cn } from "@/lib/utils";
+import CardComposer from "@/features/post-composer/trigger/CardComposer";
+import NewsFeedList from "@/features/news-feed/NewsFeedList";
 
 export default function Home() {
   return (
@@ -27,7 +28,8 @@ export default function Home() {
           <NewsFeed
             className={cn(
               "mx-auto w-full max-w-[31.25rem]",
-              "1310:w-[42.5rem] 1310:max-w-none",
+              "1310:w-[31.25rem]",
+              "1310:max-w-none 1920:w-[42.5rem]",
             )}
           />
         </div>
@@ -42,5 +44,21 @@ export default function Home() {
         />
       </div>
     </>
+  );
+}
+
+// #Sections
+
+interface NewsFeedProps {
+  className?: string;
+}
+
+// # Component
+function NewsFeed({ className }: NewsFeedProps) {
+  return (
+    <div className={cn("flex flex-col gap-4", className)}>
+      <CardComposer />
+      <NewsFeedList />
+    </div>
   );
 }

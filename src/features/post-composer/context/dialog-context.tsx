@@ -22,10 +22,18 @@ export const DialogProvider: React.FC<DialogProviderProps> = ({ children }) => {
   const [openDialog, setOpenDialog] = useState(false);
   const [openPhoto, setOpenPhoto] = useState(false);
 
+  const openOrReset = (value: boolean) => {
+    if (!value) {
+      setOpenDialog(false);
+      setOpenPhoto(false);
+    }
+    setOpenDialog(value);
+  };
+
   const value: DialogValue = {
     openDialog,
     openPhoto,
-    setOpenDialog,
+    setOpenDialog: openOrReset,
     setOpenPhoto,
   };
 
