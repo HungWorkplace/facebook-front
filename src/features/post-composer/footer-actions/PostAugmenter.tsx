@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/custom/button";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { useDialogContext } from "../context/dialog-context";

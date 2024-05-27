@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/custom/button";
 import { useRef, useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { MdAddPhotoAlternate } from "react-icons/md";
@@ -33,7 +33,7 @@ export default function UpPhotos() {
     <div className="relative rounded-lg border p-2">
       {/* Close button */}
       <Button
-        className="text hover:bg-hover-item-radio absolute right-4 top-4 z-10 h-8 w-8 rounded-full border bg-white p-0 text-secondary-icon"
+        className="text absolute right-4 top-4 z-10 h-8 w-8 rounded-full border bg-white p-0 text-secondary-icon hover:bg-hover-item-radio"
         onClick={(e) => {
           e.stopPropagation();
           setOpenPhoto(false);

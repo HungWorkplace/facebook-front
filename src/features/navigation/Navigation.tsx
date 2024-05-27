@@ -1,5 +1,5 @@
 import YourProfile from "@/features/navigation/YourProfile";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/custom/button";
 import { FaFacebook } from "react-icons/fa6";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import { IoMdAdd } from "react-icons/io";
@@ -39,7 +39,7 @@ export default function Navigation() {
       <div className="flex gap-2">
         <Button
           size={"icon"}
-          className="rounded-full bg-[#E4E6EB] hover:bg-[#d8dadf]"
+          className="rounded-full bg-[#E4E6EB] hover:bg-hover-icon-button"
         >
           <IoMdAdd size={20} color="black" />
         </Button>

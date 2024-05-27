@@ -36,7 +36,10 @@
     --ring: 217.17 100% 51.57%;
 
     --radius: 0.5rem;
+
     --shadow-2: rgba(0, 0, 0, 0.2);
+    --card-box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.2),
+      0 2px 4px 0 rgba(0, 0, 0, 0.1);
 
     --hover-item: #e3e5e8;
     --hover-item-radio: #f2f2f2;
@@ -103,6 +106,10 @@
   }
   .shadow-card {
     box-shadow: 0 1px 2px var(--shadow-2);
+  }
+
+  .shadow-card-box {
+    box-shadow: var(--card-box-shadow);
   }
 
   .sidebar-top {

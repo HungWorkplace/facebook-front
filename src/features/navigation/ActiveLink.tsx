@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/custom/button";
 
 interface ActiveLinkProps {
   href: string;
@@ -51,7 +51,7 @@ function Inactive({ href, children, className }: InactiveProps) {
       className={cn(
         buttonVariants({ variant: "ghost" }),
         defaultClassName,
-        "text-secondary-icon hover:text-secondary-icon hover:bg-hover-banner",
+        "text-secondary-icon hover:bg-hover-banner hover:text-secondary-icon",
         className,
       )}
     >

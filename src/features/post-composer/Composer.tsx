@@ -3,7 +3,7 @@ import { DialogClose, DialogFooter } from "./custom/dialog";
 
 import UserAvatar from "@/components/UserAvatar";
 import { fetchUser } from "@/utils/api/user";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/custom/button";
 import AudienceTrigger from "./audience/AudienceTrigger";
 import UserContent from "./compose-area/UserContent";
 import PostAugmenter from "./footer-actions/PostAugmenter";

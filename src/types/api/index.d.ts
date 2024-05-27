@@ -5,10 +5,11 @@ export type User = {
   firstName: string;
   phone?: string;
   email: string;
-  birthday: Date;
+  birthday: string;
   gender: Gender;
-  createdAt: Date;
+  createdAt: string;
   surname: string;
+  fullName: string;
   avatar?: string;
 };
 
@@ -17,5 +18,5 @@ export type Post = {
   user: User;
   content: string;
   image?: string;
-  createdAt: Date;
+  createdAt: string;
 };

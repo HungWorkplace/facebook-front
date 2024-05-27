@@ -9,7 +9,7 @@ import { type ControllerRenderProps } from "react-hook-form";
 
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/custom/button";
 import { cn } from "@/lib/utils";
 
 interface RadioFieldType {

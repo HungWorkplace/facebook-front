@@ -1,5 +1,5 @@
 import * as Checkbox from "@radix-ui/react-checkbox";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/custom/button";
 import styles from "./Audience.module.css";
 import { cn } from "@/lib/utils";
 import { FaCheck } from "react-icons/fa";
@@ -34,7 +34,9 @@ export default function FooterActions() {
         >
           Cancel
         </Button>
-        <Button className="ml-2 w-28 text-white">Save</Button>
+        <Button background={"primary"} className="ml-2 w-28 text-white">
+          Save
+        </Button>
       </div>
     </div>
   );
