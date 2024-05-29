@@ -55,6 +55,9 @@ const colors = {
       text: "var(--disabled-button-text)",
     },
   },
+  comment: {
+    background: "var(--comment-background)",
+  },
 };
 
 export default colors;

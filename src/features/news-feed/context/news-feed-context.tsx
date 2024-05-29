@@ -19,7 +19,7 @@ const NewsFeedContext = createContext<NewsFeedValue | null>(null);
 export const NewsFeedProvider: React.FC<NewsFeedProviderProps> = ({
   children,
 }) => {
-  const [openNotification, setOpenNotification] = useState(true);
+  const [openNotification, setOpenNotification] = useState(false);
 
   const value: NewsFeedValue = {
     openNotification,

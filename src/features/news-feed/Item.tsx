@@ -1,6 +1,11 @@
 import Card from "@/components/layouts/Card";
 import { Post } from "@/types/api";
-import Header from "./Header";
+import Header from "./card/header/Header";
+import Content from "./card/body/Content";
+import Statistics from "./card/body/Statistics";
+import Interact from "./card/interact/Interact";
+import Comment from "./card/comment/Comment";
+import CommentBox from "./card/comment/CommentBox";
 
 interface ItemProps {
   post: Post;
@@ -9,9 +14,13 @@ interface ItemProps {
 // # Component
 export default function Item({ post }: ItemProps) {
   return (
-    <Card key={post._id}>
+    <Card className="text-primary-foreground">
       <Header post={post} />
-      <div className="p-4">{post.content}</div>
+      <Content content={post.content} />
+      <Statistics />
+      <Interact />
+      <Comment />
+      <CommentBox />
     </Card>
   );
 }

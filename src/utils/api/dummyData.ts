@@ -79,7 +79,7 @@ function getRandomImage() {
 export const posts: Post[] = [
   {
     _id: "101",
-    user: users[0],
+    user: users[1],
     content: `Today was a fantastic day! 
     I started my morning with a refreshing jog in the park. 
     In the afternoon, I met up with old friends for coffee and reminisced about our college days.`,
@@ -87,7 +87,7 @@ export const posts: Post[] = [
   },
   {
     _id: "102",
-    user: users[1],
+    user: users[2],
     content: `I had an amazing experience at the art gallery today. 
     The exhibits were incredibly inspiring and full of vibrant colors. 
     I even managed to chat with one of the artists and learned a lot about their creative process.`,
@@ -96,7 +96,7 @@ export const posts: Post[] = [
   },
   {
     _id: "103",
-    user: users[2],
+    user: users[3],
     content: `Cooking is truly an art, and I tried a new recipe today. 
     The dish turned out to be delicious, far exceeding my expectations. 
     Sharing a meal with family made it even more special.`,
@@ -104,7 +104,7 @@ export const posts: Post[] = [
   },
   {
     _id: "104",
-    user: users[3],
+    user: users[4],
     content: `I finally completed the marathon I've been training for months! 
     Crossing the finish line was one of the most fulfilling moments of my life. 
     The support from the crowd and my loved ones kept me going.`,
@@ -112,7 +112,7 @@ export const posts: Post[] = [
   },
   {
     _id: "105",
-    user: users[4],
+    user: users[0],
     content: `Just returned from a week-long camping trip in the mountains. 
     The serene environment was a perfect escape from the city hustle. 
     Each night, the clear sky full of stars was a breathtaking sight.`,

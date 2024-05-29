@@ -7,7 +7,7 @@ import { Button } from "@/components/custom/button";
 
 // # Component
 export default function ActivityLogNotification() {
-  const { openNotification } = useNewsFeedContext();
+  const { openNotification, setOpenNotification } = useNewsFeedContext();
 
   if (!openNotification) return <></>;
 
@@ -25,7 +25,9 @@ export default function ActivityLogNotification() {
             </p>
           </div>
         </div>
-        <Button variant={"gray"}>Undo</Button>
+        <Button onClick={() => setOpenNotification(false)} variant={"gray"}>
+          Undo
+        </Button>
       </div>
     </Card>
   );

@@ -48,6 +48,8 @@
     --overlay: 0 0% 96%;
     --disabled-button-text: #bcc0c4;
     --card-background-flat: #f7f8fa;
+
+    --comment-background: #f0f2f5;
   }
 
   .dark {
