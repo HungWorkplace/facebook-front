@@ -1,17 +1,20 @@
 import UserAvatar from "@/components/UserAvatar";
+import { cn } from "@/lib/utils";
+import CommentForm from "./CommentForm";
+
+interface CommentBoxProps {
+  className?: string;
+}
 
 // # Component
-export default function CommentBox() {
+export default function CommentBox({ className }: CommentBoxProps) {
   return (
-    <div className="flex gap-1.5">
+    <div className={cn("flex gap-1.5", className)}>
       {/* Avatar on the left */}
       <UserAvatar className="size-8" />
 
       {/* Comment on the right side */}
-      <div className="relative h-8 flex-1 text-sm">
-        <div contentEditable suppressContentEditableWarning className=""></div>
-        <div className="absolute left-0 top-0">Write a comment</div>
-      </div>
+      <CommentForm />
     </div>
   );
 }

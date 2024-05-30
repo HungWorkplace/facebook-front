@@ -6,6 +6,7 @@ import Statistics from "./card/body/Statistics";
 import Interact from "./card/interact/Interact";
 import Comment from "./card/comment/Comment";
 import CommentBox from "./card/comment/CommentBox";
+import { ItemProvider } from "./context/item-context";
 
 interface ItemProps {
   post: Post;
@@ -14,13 +15,15 @@ interface ItemProps {
 // # Component
 export default function Item({ post }: ItemProps) {
   return (
-    <Card className="text-primary-foreground">
-      <Header post={post} />
-      <Content content={post.content} />
-      <Statistics />
-      <Interact />
-      <Comment />
-      <CommentBox />
-    </Card>
+    <ItemProvider>
+      <Card className="text-primary-foreground">
+        <Header post={post} />
+        <Content content={post.content} />
+        <Statistics />
+        <Interact />
+        <Comment className="pb-2" />
+        <CommentBox />
+      </Card>
+    </ItemProvider>
   );
 }

@@ -1,25 +1,26 @@
 import UserAvatar from "@/components/UserAvatar";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
+import UserComment from "./UserComment";
+import CommentOptionsMenu from "./CommentOptionsMenu";
+
+interface CommentProps {
+  className?: string;
+}
 
 // # Component
-export default function Comment() {
+export default function Comment({ className }: CommentProps) {
   return (
-    <div className="flex gap-1.5 pt-3 text-sm">
+    <div className={cn("flex gap-1.5 pt-3 text-sm", className)}>
       {/* Avatar left */}
       <UserAvatar className="size-8" />
 
-      {/* Comment on right side*/}
-      <div>
-        <div className="bg-comment-background rounded-2xl px-3 py-2">
-          <div className="text-xs font-semibold">Nguyen Quang Hung</div>
-          <div className="">
-            Sharing a meal with family made it even more special
-          </div>
-        </div>
+      <div className="flex flex-1">
+        {/* Comment on right side*/}
+        <UserComment className="flex-1" />
 
-        <div className="space-x-4 pl-2.5 text-xs text-secondary-foreground">
-          <span>9h</span>
-          <span className="font-bold">Like</span>
-        </div>
+        {/* 3 dots Action */}
+        <CommentOptionsMenu className="" />
       </div>
     </div>
   );
