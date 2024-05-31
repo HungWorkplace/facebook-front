@@ -1,10 +1,7 @@
 import Contacts from "@/features/contacts/Contacts";
+import { NewsFeedLayout } from "@/features/news-feed/NewsFeedLayout";
 import ShortCuts from "@/features/shortcuts/Shortcuts";
 import { cn } from "@/lib/utils";
-import CardComposer from "@/features/post-composer/trigger/CardComposer";
-import NewsFeed from "@/features/news-feed/NewsFeed";
-import ActivityLogNotification from "@/features/news-feed/ActivityLogNotification";
-import { NewsFeedProvider } from "@/features/news-feed/context/news-feed-context";
 
 export default function Home() {
   return (
@@ -46,24 +43,5 @@ export default function Home() {
         />
       </div>
     </>
-  );
-}
-
-// #Sections
-
-interface NewsFeedProps {
-  className?: string;
-}
-
-// # Component
-function NewsFeedLayout({ className }: NewsFeedProps) {
-  return (
-    <div className={cn("flex flex-col gap-4", className)}>
-      <CardComposer />
-      <NewsFeedProvider>
-        <ActivityLogNotification />
-        <NewsFeed />
-      </NewsFeedProvider>
-    </div>
   );
 }

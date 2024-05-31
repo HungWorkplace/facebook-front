@@ -19,8 +19,8 @@
     --secondary: 210 40% 96.1%;
     --secondary-foreground: #65676b;
 
-    --secondary-icon: 220 3% 41%; /* #65676b;*/
-    --secondary-button-background: 223 15% 91%;
+    --secondary-icon: #65676b;
+    --secondary-button-background: #e4e6eb;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;

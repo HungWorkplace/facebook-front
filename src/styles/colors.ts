@@ -11,9 +11,9 @@ const colors = {
   secondary: {
     DEFAULT: "hsl(var(--secondary))",
     foreground: "var(--secondary-foreground)",
-    icon: "hsl(var(--secondary-icon) / <alpha-value>)",
+    icon: "var(--secondary-icon)",
     button: {
-      background: "hsl(var(--secondary-button-background))",
+      background: "var(--secondary-button-background)",
     },
   },
   destructive: {

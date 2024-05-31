@@ -38,7 +38,7 @@ export default async function Composer() {
 
         <Button
           variant="default"
-          className="mx-4 mt-4 disabled:cursor-no-drop disabled:bg-[#e4e6eb] disabled:text-disabled-button-text disabled:opacity-100"
+          className="mx-4 mt-4 disabled:cursor-no-drop disabled:bg-secondary-button-background disabled:text-disabled-button-text disabled:opacity-100"
           disabled
         >
           Post

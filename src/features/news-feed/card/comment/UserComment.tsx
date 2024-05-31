@@ -29,7 +29,7 @@ export default function UserComment({ className }: UserCommentProps) {
 
         <div className="flex items-center space-x-1">
           <span>32</span>
-          <Image src="like.svg" width={18} height={18} alt="like" />
+          <Image src="/like.svg" width={18} height={18} alt="like" />
         </div>
       </div>
     </div>

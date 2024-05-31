@@ -32,7 +32,7 @@ export default function YourProfile() {
             className="inline-flex w-full items-center gap-3 rounded-lg p-2 outline-none hover:bg-hover-banner"
           >
             <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#e4e6ec] text-[#1c1d21]">
-              <Image src={"logout.svg"} alt="logout" width={20} height={20} />
+              <Image src={"/logout.svg"} alt="logout" width={20} height={20} />
             </span>
             <span className="text-sm font-semibold">Log Out</span>
           </button>

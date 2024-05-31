@@ -5,6 +5,7 @@ import Card from "@/components/layouts/Card";
 import Dialog from "./Dialog";
 import { DialogProvider } from "../context/dialog-context";
 import PhotoPost from "./PhotoPost";
+import Link from "next/link";
 
 // # Component
 export default function CardComposer() {
@@ -12,7 +13,7 @@ export default function CardComposer() {
     <Card>
       <DialogProvider>
         <div className="flex gap-2 border-b pb-3">
-          <UserAvatar />
+          <Link href={'/users/12345'}><UserAvatar /></Link>
           <Dialog />
         </div>
         <PhotoPost />

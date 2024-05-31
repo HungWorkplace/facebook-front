@@ -1,19 +1,22 @@
 import YourProfile from "@/features/navigation/YourProfile";
-import { Button } from "@/components/custom/button";
 import { FaFacebook } from "react-icons/fa6";
 import { HiMagnifyingGlass } from "react-icons/hi2";
-import { IoMdAdd } from "react-icons/io";
+
 import { HamburgerIcon, HomeIcon, HomeOutlineIcon } from "./navigation-icons";
 import ActiveLink from "./ActiveLink";
+import Link from "next/link";
+import CreateButton from "./CreateButton";
 
 // # Component
 export default function Navigation() {
   return (
-    <nav className="fixed left-0 top-0 z-10 flex h-14 w-full items-center justify-between bg-white px-4 py-1 text-secondary-icon shadow">
+    <nav className="fixed left-0 top-0 z-40 flex h-14 w-full items-center justify-between bg-white px-4 py-1 text-secondary-icon shadow">
       {/* left side */}
       <div className="flex h-full items-center">
         <div className="flex gap-2">
-          <FaFacebook size={40} className="text-primary" />
+          <Link href={"/"}>
+            <FaFacebook size={40} className="text-primary" />
+          </Link>
           <Search />
         </div>
       </div>
@@ -37,12 +40,8 @@ export default function Navigation() {
 
       {/* right side*/}
       <div className="flex gap-2">
-        <Button
-          size={"icon"}
-          className="rounded-full bg-[#E4E6EB] hover:bg-hover-icon-button"
-        >
-          <IoMdAdd size={20} color="black" />
-        </Button>
+        {/* Plus button */}
+        <CreateButton />
 
         <YourProfile />
       </div>

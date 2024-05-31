@@ -19,7 +19,8 @@ export default function HomeLayout({
       <CounterStoreProvider>
         <UserProvider>
           <Navigation />
-          <div className="mt-14">{children}</div>
+          <div className="h-14 w-full"></div>
+          {children}
         </UserProvider>
       </CounterStoreProvider>
     </body>
