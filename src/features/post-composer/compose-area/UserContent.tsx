@@ -30,7 +30,7 @@ export default function UserContent({ className }: UserContentProps) {
     // max-h-40 min-h-36
     <div className={cn("mx-4 flex-1 overflow-y-auto", className)}>
       <div className="flex w-full flex-col">
-        {/* Input */}
+        {/* Typing */}
         <div
           className={cn("relative flex-1 pb-4", changeTextSize, {
             "text-base": openPhoto,

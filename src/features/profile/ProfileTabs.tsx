@@ -1,6 +1,5 @@
 "use client";
 
-import UserAvatar from "@/components/UserAvatar";
 import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
 import { users } from "@/utils/api/dummyData";

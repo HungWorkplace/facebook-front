@@ -1,4 +1,4 @@
-import { fetchUser } from "@/utils/api/user";
+import { getUserWithToken } from "@/utils/api/user";
 import { Dialog, DialogTrigger } from "@/features/post-composer/custom/dialog";
 import Content from "../Content";
 
@@ -8,7 +8,7 @@ interface StatusInputProps {
 
 // # Component
 export default async function StatusInput({ className }: StatusInputProps) {
-  const user = await fetchUser();
+  const user = await getUserWithToken();
 
   return (
     <Dialog>

@@ -2,8 +2,8 @@ import { X } from "lucide-react";
 import { DialogClose, DialogFooter } from "./custom/dialog";
 
 import UserAvatar from "@/components/UserAvatar";
-import { fetchUser } from "@/utils/api/user";
-import { Button } from "@/components/custom/button";
+import { getUserWithToken } from "@/utils/api/user";
+import { Button } from "@/components/ui/custom/button";
 import AudienceTrigger from "./audience/AudienceTrigger";
 import UserContent from "./compose-area/UserContent";
 import PostAugmenter from "./footer-actions/PostAugmenter";
@@ -11,7 +11,7 @@ import Title from "./components/Title";
 
 // # Component
 export default async function Composer() {
-  const user = await fetchUser();
+  const user = await getUserWithToken();
 
   return (
     <div className="flex h-full w-full flex-col">

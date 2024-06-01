@@ -3,7 +3,7 @@
 import Card from "@/components/layouts/Card";
 import { useNewsFeedContext } from "./context/news-feed-context";
 import { FaWindowClose } from "react-icons/fa";
-import { Button } from "@/components/custom/button";
+import { Button } from "@/components/ui/custom/button";
 
 // # Component
 export default function ActivityLogNotification() {

@@ -1,5 +1,8 @@
 const colors = {
-  border: "hsl(var(--border))",
+  border: {
+    DEFAULT: "hsl(var(--border))",
+  },
+  divider: "var(--border-divider)",
   input: "hsl(var(--input))",
   ring: "hsl(var(--ring))",
   background: "hsl(var(--background))",

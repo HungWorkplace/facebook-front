@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { buttonVariants } from "@/components/custom/button";
+import { buttonVariants } from "@/components/ui/custom/button";
 
 interface ActiveLinkProps {
   href: string;

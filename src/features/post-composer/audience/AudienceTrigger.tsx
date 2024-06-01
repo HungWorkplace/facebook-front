@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/custom/button";
+import { Button } from "@/components/ui/custom/button";
 import { FaLock } from "react-icons/fa6";
 import { FaCaretDown } from "react-icons/fa6";
 import { useCarousel } from "../custom/carousel";

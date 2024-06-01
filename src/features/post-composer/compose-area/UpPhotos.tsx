@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/custom/button";
+import { Button } from "@/components/ui/custom/button";
 import { useRef, useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { MdAddPhotoAlternate } from "react-icons/md";

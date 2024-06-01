@@ -45,7 +45,7 @@ const FullName = ({ className, user }: FullNameProps) => {
 interface RootProps {
   children: React.ReactNode;
   className?: string;
-  user: User;
+  user: User | undefined;
 }
 
 // # Component

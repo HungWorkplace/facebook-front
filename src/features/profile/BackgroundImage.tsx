@@ -15,7 +15,8 @@ export default function BackgroundImage({ className }: BackgroundAvatarProps) {
           <Image
             src="/background-avatar.jpg"
             alt="background"
-            layout="fill"
+            fill
+            priority
             className="rounded-b-lg object-cover"
           />
         </div>

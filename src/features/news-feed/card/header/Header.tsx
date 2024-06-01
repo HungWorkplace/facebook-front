@@ -1,5 +1,5 @@
 import UserAvatar from "@/components/UserAvatar";
-import { Button } from "@/components/custom/button";
+import { Button } from "@/components/ui/custom/button";
 import { Post } from "@/types/api";
 import { timeAgo } from "@/utils/timeAgo";
 import { GiEarthAsiaOceania } from "react-icons/gi";

@@ -1,7 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
 import { User } from "@/types/api";
-import { fetchUser } from "@/utils/api/user";
+import { getUserWithToken } from "@/utils/api/user";
 
 interface UserAvatarProps {
   user?: User;
@@ -10,7 +10,7 @@ interface UserAvatarProps {
 
 // # Component
 export default async function UserAvatar({ user, className }: UserAvatarProps) {
-  const userDetails = user ? user : await fetchUser();
+  const userDetails = user ? user : await getUserWithToken();
 
   const fallbackName =
     (userDetails?.firstName?.[0].toUpperCase() ?? "") +

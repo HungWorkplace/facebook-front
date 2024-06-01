@@ -24,10 +24,10 @@ interface TextProps {
 
 function Text({ heading, description }: TextProps) {
   return (
-    <div className="space-y-1">
+    <div className="text-left">
       <h2 className="font-semibold">{heading}</h2>
       {description && (
-        <p className="text-secondary-foreground">{description}</p>
+        <p className="text-sm text-secondary-foreground">{description}</p>
       )}
     </div>
   );

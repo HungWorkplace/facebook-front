@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { fetchUser } from "@/utils/api/user";
+import { getUserWithToken } from "@/utils/api/user";
 
 interface UserNameProps {
   className?: string;
@@ -7,7 +7,7 @@ interface UserNameProps {
 
 // # Component
 export default async function UserName({ className }: UserNameProps) {
-  const user = await fetchUser();
+  const user = await getUserWithToken();
 
   return (
     <p

@@ -4,7 +4,6 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { url } from "@/utils/urls";
 import { User } from "@/types/api";
-import { users } from "@/utils/api/dummyData";
 
 interface ContextValue {
   user: User | null;
@@ -20,27 +19,25 @@ interface ResponseValue {
 
 const UserContext = createContext<ContextValue | null>(null);
 
-// Todo: Remove initial value in user state
 const UserProvider = ({ children }: UserContextProps) => {
-  const [user, setUser] = useState<User | null>(users[0]);
+  const [user, setUser] = useState<User | null>(null);
 
-  // Todo: Uncomment the code below
-  // useEffect(() => {
-  //   // Fetch the user from the API
-  //   const fetchUser = async () => {
-  //     try {
-  //       const response = await axios.get<ResponseValue>(url.profile.get, {
-  //         withCredentials: true,
-  //       });
+  useEffect(() => {
+    // Fetch the user from the API
+    const fetchUser = async () => {
+      try {
+        const response = await axios.get<ResponseValue>(url.profile.get, {
+          withCredentials: true,
+        });
 
-  //       setUser(response.data.user);
-  //     } catch (error) {
-  //       console.error("Error fetching user", error);
-  //     }
-  //   };
+        setUser(response.data.user);
+      } catch (error) {
+        console.error("Error fetching user", error);
+      }
+    };
 
-  //   fetchUser();
-  // }, []);
+    fetchUser();
+  }, []);
 
   const value = {
     user,

@@ -2,7 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { Button } from "@/components/custom/button";
+import { Button } from "@/components/ui/custom/button";
 import { Form, FormField } from "@/components/ui/form";
 import { FormSchema } from "@/lib/FormSchema";
 import RadioField from "./signup/RadioField";

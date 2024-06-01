@@ -23,10 +23,10 @@ export default function UserProfile() {
       <div
         className={cn(
           "mx-auto flex max-w-[42.5rem] flex-col px-2 pt-4",
-          "925:flex-row 925:max-w-[56.75rem]",
+          "925:max-w-[56.75rem] 925:flex-row",
         )}
       >
-        <Photos className={cn("mx-auto mb-4 px-2", "925:flex-1")} />
+        {/* <Photos className={cn("mx-auto mb-4 px-2", "925:flex-1")} /> */}
 
         <NewsFeedLayout className={cn("mx-2", "925:w-[31.25rem]")} />
       </div>
