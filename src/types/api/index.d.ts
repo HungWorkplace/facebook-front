@@ -1,16 +1,25 @@
-export type Gender = "male" | "female" | "other";
+// export type Gender = "male" | "female" | "other";
 
 export type User = {
   _id: string;
+  id: string;
   firstName: string;
   phone?: string;
   email: string;
   birthday: string;
-  gender: Gender;
+  userSetting: {
+    postPrivacy: "public" | "private";
+  };
+  gender: "male" | "female" | "other";
   createdAt: string;
   surname: string;
   fullName: string;
-  avatar?: string;
+  avatar?: {
+    id: string;
+    url: string;
+    public_id?: string;
+  };
+  friends: User[];
 };
 
 export type Post = {

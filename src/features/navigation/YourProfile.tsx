@@ -5,18 +5,23 @@ import {
 } from "@/components/ui/popover";
 import Image from "next/image";
 import * as actions from "@/actions/auth";
-import UserAvatar from "../../components/UserAvatar";
 import CardInfo from "./CardInfor";
+import { AvatarName } from "@/components/AvatarName";
+import { getUser } from "@/controllers/user";
 // import { MdDarkMode } from "react-icons/md";
 // import { BsFillQuestionCircleFill } from "react-icons/bs";
 // import { BsGearFill } from "react-icons/bs";
 
 // # Component
-export default function YourProfile() {
+export default async function YourProfile() {
+  const user = await getUser();
+
   return (
     <Popover>
       <PopoverTrigger>
-        <UserAvatar />
+        <AvatarName.Root user={user}>
+          <AvatarName.Image />
+        </AvatarName.Root>
       </PopoverTrigger>
 
       <PopoverContent

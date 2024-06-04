@@ -58,8 +58,9 @@ export async function login(
     return { errors: userTyping.error.flatten().fieldErrors };
   }
 
+  // Get the data from the form state and send it to the server
   try {
-    const res = await axios.post(url.auth.login, userTyping.data);
+    const res = await axios.post(url.auth.post.login, userTyping.data);
 
     // if it not success
     if (res.status !== 200) {
@@ -68,7 +69,7 @@ export async function login(
       return { errors: { response: data.error } };
     }
 
-    // if it success
+    // if it success, user is logged in and we have the user data
     const data = res.data as ResponseSuccess;
 
     // set token to the cookie

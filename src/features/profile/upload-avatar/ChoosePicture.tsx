@@ -19,7 +19,10 @@ export default function ChoosePicture() {
       const reader = new FileReader();
 
       reader.onloadend = () => {
-        setSelectedImage(reader.result);
+        setSelectedImage({
+          base64: reader.result as string,
+          file,
+        });
       };
       reader.readAsDataURL(file);
 

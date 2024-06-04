@@ -3,13 +3,29 @@ import { NewsFeedLayout } from "@/features/news-feed/NewsFeedLayout";
 import BackgroundImage from "@/features/profile/BackgroundImage";
 import ProfileHeader from "@/features/profile/ProfileHeader";
 import ProfileTabs from "@/features/profile/ProfileTabs";
-import Photos from "@/features/profile/photos/Photos";
 import { cn } from "@/lib/utils";
+import { ProfileProvider } from "@/context/profile";
+import { getUser, getUserById } from "@/controllers/user";
+
+interface UserProfilePageProps {
+  params: {
+    userId: string;
+  };
+}
 
 // # Component
-export default function UserProfile() {
+export default async function UserProfilePage({
+  params,
+}: UserProfilePageProps) {
+  const user = await getUser();
+  let userData = user!;
+
+  if (userData.id !== params.userId) {
+    userData = await getUserById(params.userId);
+  }
+
   return (
-    <>
+    <ProfileProvider user={userData}>
       {/* bg-white shadow */}
       <div className="bg-white">
         <BackgroundImage className="max-w-[58.75rem]" />
@@ -30,6 +46,6 @@ export default function UserProfile() {
 
         <NewsFeedLayout className={cn("mx-2", "925:w-[31.25rem]")} />
       </div>
-    </>
+    </ProfileProvider>
   );
 }

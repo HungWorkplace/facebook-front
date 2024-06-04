@@ -13,7 +13,9 @@ export default function SuggestedPhotos({ className }: SuggestedPhotosProps) {
   const { setSelectedImage, setIsChose } = useProfileAvatarContext();
 
   const handlePickImage = (index: number) => {
-    setSelectedImage(`/cats/${index + 1}.jpg`);
+    setSelectedImage({
+      base64: `/cats/${index + 1}.jpg`,
+    });
     setIsChose(true);
   };
 

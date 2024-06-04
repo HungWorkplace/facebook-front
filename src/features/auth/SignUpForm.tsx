@@ -67,7 +67,7 @@ export default function SignUpForm() {
     try {
       setIsLoading(true);
 
-      const res = await axios.post<ResponseType>(url.auth.signup, data, {
+      const res = await axios.post<ResponseType>(url.auth.post.signup, data, {
         withCredentials: true,
       });
 
@@ -117,7 +117,7 @@ export default function SignUpForm() {
 
           <Button
             type="submit"
-            className="w-1/2 bg-[#119f16] text-lg hover:bg-[#0f8a13]"
+            className="w-1/2 bg-[#119f16] text-lg text-white hover:bg-[#0f8a13]"
           >
             {isLoading ? (
               <CgSpinner size={25} color="white" className="animate-spin" />

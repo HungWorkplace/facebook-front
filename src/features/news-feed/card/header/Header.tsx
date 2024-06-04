@@ -1,4 +1,3 @@
-import UserAvatar from "@/components/UserAvatar";
 import { Button } from "@/components/ui/custom/button";
 import { Post } from "@/types/api";
 import { timeAgo } from "@/utils/timeAgo";
@@ -15,6 +14,7 @@ import {
 import Link from "next/link";
 import { HeaderItem } from "./HeaderItem";
 import { HeaderProvider } from "./context/header-context";
+import { AvatarName } from "@/components/AvatarName";
 
 interface HeaderProps {
   post: Post;
@@ -28,7 +28,10 @@ export default function Header({ post }: HeaderProps) {
     <header className="flex items-center justify-between">
       <div className="flex items-center gap-2">
         {/* Avatar */}
-        <UserAvatar user={user} />
+        <AvatarName.Root user={user}>
+          <AvatarName.Image />
+        </AvatarName.Root>
+
         <div className="flex flex-col justify-center">
           {/* User name */}
           <Link

@@ -26,7 +26,7 @@ const UserProvider = ({ children }: UserContextProps) => {
     // Fetch the user from the API
     const fetchUser = async () => {
       try {
-        const response = await axios.get<ResponseValue>(url.profile.get, {
+        const response = await axios.get<ResponseValue>(url.users.get.getMe, {
           withCredentials: true,
         });
 

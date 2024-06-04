@@ -3,11 +3,16 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
 
 // Define the shape of the context value
+export type SelectedImage = {
+  base64: string;
+  file?: File;
+};
+
 interface ProfileAvatarValue {
   isChose: boolean;
-  selectedImage: string | ArrayBuffer | null;
   setIsChose: (isChose: boolean) => void;
-  setSelectedImage: (selectedImage: string | ArrayBuffer | null) => void;
+  selectedImage: SelectedImage | null;
+  setSelectedImage: (selectedImage: SelectedImage) => void;
 }
 
 interface ProfileAvatarProviderProps {
@@ -21,15 +26,16 @@ const ProfileAvatarContext = createContext<ProfileAvatarValue | null>(null);
 export const ProfileAvatarProvider: React.FC<ProfileAvatarProviderProps> = ({
   children,
 }) => {
+  // # State Value
   const [isChose, setIsChose] = useState(false);
-  const [selectedImage, setSelectedImage] = useState<
-    string | ArrayBuffer | null
-  >(null);
+  const [selectedImage, setSelectedImage] = useState<SelectedImage | null>(
+    null,
+  );
 
   const value: ProfileAvatarValue = {
     isChose,
-    selectedImage,
     setIsChose,
+    selectedImage,
     setSelectedImage,
   };
 

@@ -25,7 +25,7 @@ const Image = ({ className, user }: ImageProps) => {
   return (
     <Avatar className={cn("press cursor-pointer", className)}>
       <AvatarImage
-        src={user?.avatar ? user?.avatar : "/no-avatar.jpg"}
+        src={user?.avatar?.url ? user?.avatar.url : "/no-avatar.jpg"}
         className="transition-all hover:brightness-90 active:brightness-75"
       />
       <AvatarFallback>{fallbackName}</AvatarFallback>
