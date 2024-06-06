@@ -1,19 +1,21 @@
 import { AvatarName } from "@/components/AvatarName";
 import { ItemSideBar } from "@/components/layouts/ItemSideBar";
-import { getUser } from "@/controllers/user";
+import { Friend, User } from "@/types/api";
 import Link from "next/link";
 
-// # Component
-export default async function Profile() {
-  const user = await getUser();
+interface SidebarItemProps {
+  user: User | Friend;
+}
 
+// # Component
+export default async function SidebarItem({ user }: SidebarItemProps) {
   return (
     <ItemSideBar.Wrap>
       <Link href={`/users/${user.id}`}>
         <ItemSideBar.Content>
-          <AvatarName.Root user={user}>
-            <AvatarName.Image className="size-9" />
-            <AvatarName.FullName className="text-sm" />
+          <AvatarName.Root user={user} className="gap-3">
+            <AvatarName.Image className="size-7" />
+            <AvatarName.FullName className="text-2xs" />
           </AvatarName.Root>
         </ItemSideBar.Content>
       </Link>

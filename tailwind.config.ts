@@ -42,6 +42,11 @@ const config: Config = {
       fontFamily: {
         roboto: ["var(--font-roboto)"],
       },
+      fontSize: {
+        "2xs": "0.9375rem",
+        "2sm": "1.0625rem",
+        "2base": "1.1875rem",
+      },
     },
     screens: {
       "584": "584px",

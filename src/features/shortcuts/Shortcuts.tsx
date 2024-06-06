@@ -1,15 +1,18 @@
-import Profile from "./Profile";
+import { getUser } from "@/controllers/user";
+import SidebarItem from "../../components/SidebarItem";
 
 interface ShortCutsProps {
   className?: string;
 }
 
 // # Component
-export default function ShortCuts({ className }: ShortCutsProps) {
+export default async function ShortCuts({ className }: ShortCutsProps) {
+  const user = await getUser();
+
   return (
     <div className={className}>
       <div className="flex w-full flex-col">
-        <Profile />
+        <SidebarItem user={user} />
       </div>
     </div>
   );

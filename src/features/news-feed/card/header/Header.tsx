@@ -3,14 +3,13 @@ import { Post } from "@/types/api";
 import { timeAgo } from "@/utils/timeAgo";
 import { GiEarthAsiaOceania } from "react-icons/gi";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
-
+import { FaLock } from "react-icons/fa6";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
   PopoverArrow,
 } from "./custom/popover";
-
 import Link from "next/link";
 import { HeaderItem } from "./HeaderItem";
 import { HeaderProvider } from "./context/header-context";
@@ -21,31 +20,35 @@ interface HeaderProps {
 }
 
 // # Component
+// header of post
 export default function Header({ post }: HeaderProps) {
-  const { user, createdAt } = post;
+  const { author, createdAt, privacy } = post;
 
   return (
     <header className="flex items-center justify-between">
       <div className="flex items-center gap-2">
         {/* Avatar */}
-        <AvatarName.Root user={user}>
-          <AvatarName.Image />
-        </AvatarName.Root>
+        <Link href={"/users/" + author.id}>
+          <AvatarName.Root user={author}>
+            <AvatarName.Image />
+          </AvatarName.Root>
+        </Link>
 
         <div className="flex flex-col justify-center">
           {/* User name */}
           <Link
-            href={"/"}
-            className="text-sm font-semibold text-primary-foreground hover:underline"
+            href={"/users/" + author.id}
+            className="text-2xs font-semibold text-primary-foreground hover:underline"
           >
-            {user.fullName}
+            {author.fullName}
           </Link>
 
           {/* Time and audience */}
           <div className="flex items-center gap-1 text-xs text-secondary-foreground">
             <span>{timeAgo(createdAt)}</span>
             <span aria-hidden>·</span>
-            <GiEarthAsiaOceania />
+            {privacy === "public" && <GiEarthAsiaOceania />}
+            {privacy === "private" && <FaLock />}
           </div>
         </div>
       </div>

@@ -35,8 +35,8 @@ export default function Home() {
 
         <Contacts
           className={cn(
-            "sticky bottom-0 right-0 top-14 hidden h-[calc(100vh-3.5rem)] w-[30%] overflow-y-auto bg-black/5 pt-4",
-            "900:flex",
+            "sticky bottom-0 right-0 top-14 hidden h-[calc(100vh-3.5rem)] w-[30%] overflow-y-auto pt-4",
+            "900:block",
             "1100:w-[17.5rem]",
             "1310:flex-1",
           )}

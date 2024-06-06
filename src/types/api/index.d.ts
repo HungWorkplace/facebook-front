@@ -1,31 +1,56 @@
 // export type Gender = "male" | "female" | "other";
 
+export type Privacy = "public" | "private";
+
+type Image = {
+  id: string;
+  url: string;
+  public_id?: string;
+};
+
+type Comment = {
+  _id: string;
+  content: string;
+  author: User;
+  post: string;
+  likes: string[];
+  createdAt: string;
+};
+
 export type User = {
   _id: string;
   id: string;
   firstName: string;
-  phone?: string;
+  phone: string;
   email: string;
   birthday: string;
-  userSetting: {
-    postPrivacy: "public" | "private";
+  userSettings: {
+    postPrivacy: Privacy;
   };
   gender: "male" | "female" | "other";
   createdAt: string;
   surname: string;
   fullName: string;
-  avatar?: {
-    id: string;
-    url: string;
-    public_id?: string;
-  };
-  friends: User[];
+  avatar?: Image;
+  friends?: User[];
+};
+
+export type Friend = {
+  _id: string;
+  id: string;
+  firstName: string;
+  surname: string;
+  fullName: string;
+  avatar: string;
 };
 
 export type Post = {
   _id: string;
-  user: User;
   content: string;
-  image?: string;
+  author: User;
+  privacy: Privacy;
+  images: Image[];
+  likes: string[];
+  comments: Comment[];
   createdAt: string;
 };

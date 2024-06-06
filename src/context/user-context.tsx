@@ -1,53 +1,48 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState } from "react";
-import axios from "axios";
-import { url } from "@/utils/urls";
+import React, { createContext, useContext } from "react";
 import { User } from "@/types/api";
-
-interface ContextValue {
-  user: User | null;
-}
 
 interface UserContextProps {
   children: React.ReactNode;
-}
-
-interface ResponseValue {
   user: User;
 }
 
-const UserContext = createContext<ContextValue | null>(null);
+// interface ResponseValue {
+//   user: User;
+// }
 
-const UserProvider = ({ children }: UserContextProps) => {
-  const [user, setUser] = useState<User | null>(null);
+const UserContext = createContext<User | null>(null);
 
-  useEffect(() => {
-    // Fetch the user from the API
-    const fetchUser = async () => {
-      try {
-        const response = await axios.get<ResponseValue>(url.users.get.getMe, {
-          withCredentials: true,
-        });
+const UserProvider = ({ children, user }: UserContextProps) => {
+  // const [user, setUser] = useState<User | null>(null);
 
-        setUser(response.data.user);
-      } catch (error) {
-        console.error("Error fetching user", error);
-      }
-    };
+  // useEffect(() => {
+  //   // Fetch the user from the API
+  //   const fetchUser = async () => {
+  //     try {
+  //       const response = await axios.get<ResponseValue>(url.users.get.getMe, {
+  //         withCredentials: true,
+  //       });
 
-    fetchUser();
-  }, []);
+  //       setUser(response.data.user);
+  //     } catch (error) {
+  //       console.error("Error fetching user", error);
+  //     }
+  //   };
 
-  const value = {
-    user,
-  };
+  //   fetchUser();
+  // }, []);
 
-  return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
+  // const value = {
+  //   user,
+  // };
+
+  return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
 };
 
 // Create a custom hook to access the UserContext
-const useUser = (): ContextValue => {
+const useUser = (): User => {
   const value = useContext(UserContext);
 
   if (!value) {

@@ -7,7 +7,7 @@ interface StatusInputProps {
 }
 
 // # Component
-export default async function StatusInput({ className }: StatusInputProps) {
+export default async function DialogComposer({ className }: StatusInputProps) {
   const user = await getUser();
 
   return (

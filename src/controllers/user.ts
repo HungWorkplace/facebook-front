@@ -1,19 +1,26 @@
 import { getToken } from "@/utils/api/getToken";
-import { url } from "@/utils/urls";
-import { User } from "@/types/api";
+import { url } from "@/routes";
+import { Friend, User } from "@/types/api";
 import { cache } from "react";
 import { notFound, redirect } from "next/navigation";
 
-export const getUser = cache(async () => {
+export const headersConfig = () => {
   const token = getToken();
+
   if (!token) {
     redirect("/login");
   }
 
+  return {
+    Authorization: `Bearer ${token}`,
+  };
+};
+
+export const getUser = cache(async () => {
+  const headers = headersConfig();
+
   const response = await fetch(url.users.get.getMe, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
+    headers,
   });
 
   if (!response.ok) {
@@ -25,11 +32,28 @@ export const getUser = cache(async () => {
 });
 
 export const getUserById = cache(async (userId: string) => {
-  const res = await fetch(url.users.get.getUserById(userId));
+  const response = await fetch(url.users.get.getUserById(userId));
 
-  if (!res.ok) {
+  if (!response.ok) {
     notFound();
   }
 
-  return res.json();
+  const res = (await response.json()) as { user: User };
+  return res.user;
+});
+
+export const getFriends = cache(async () => {
+  const headers = headersConfig();
+
+  try {
+    const response = await fetch(url.users.get.getFriends, {
+      headers,
+    });
+
+    const res = (await response.json()) as { friends: Friend[] };
+    return res.friends;
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
 });

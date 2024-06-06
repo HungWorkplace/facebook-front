@@ -1,7 +1,6 @@
 import { cn } from "@/lib/utils";
-import Image from "next/image";
-import { ImCamera } from "react-icons/im";
 import ProfileAvatar from "./upload-avatar/ProfileAvatar";
+import ProfileDescription from "./ProfileDescription";
 
 interface ProfileHeaderProps {
   className?: string;
@@ -23,12 +22,7 @@ export default function ProfileHeader({ className }: ProfileHeaderProps) {
         className={cn("relative mb-3 h-[5.25rem] w-[10.5rem]", "900:mr-4")}
       />
 
-      <div className="space-y-1 text-center">
-        <h1 className="text-3xl font-bold">Black Pink</h1>
-        <p className="mt-1 font-semibold text-secondary-foreground">
-          1.6K friends
-        </p>
-      </div>
+      <ProfileDescription />
     </div>
   );
 }

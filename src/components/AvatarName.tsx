@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { User } from "@/types/api";
+import { Friend, User } from "@/types/api";
+import Image from "next/image";
 import React, {
   Children,
   ReactElement,
@@ -17,19 +17,22 @@ interface ImageProps extends MutualProps {
 }
 
 // # Component
-const Image = ({ className, user }: ImageProps) => {
-  const fallbackName =
-    (user?.firstName?.[0].toUpperCase() ?? "") +
-    (user?.surname?.[0].toUpperCase() ?? "");
+const Avatar = ({ className, user }: ImageProps) => {
+  // const fallbackName =
+  //   (user?.firstName?.[0].toUpperCase() ?? "") +
+  //   (user?.surname?.[0].toUpperCase() ?? "");
 
   return (
-    <Avatar className={cn("press cursor-pointer", className)}>
-      <AvatarImage
-        src={user?.avatar?.url ? user?.avatar.url : "/no-avatar.jpg"}
-        className="transition-all hover:brightness-90 active:brightness-75"
-      />
-      <AvatarFallback>{fallbackName}</AvatarFallback>
-    </Avatar>
+    <Image
+      src={user?.avatar?.url || "/no-avatar.jpg"}
+      width={60}
+      height={60}
+      alt="avatar"
+      className={cn(
+        "press aspect-square size-10 cursor-pointer rounded-full object-cover transition-all hover:brightness-90 active:brightness-75",
+        className,
+      )}
+    />
   );
 };
 
@@ -45,7 +48,7 @@ const FullName = ({ className, user }: FullNameProps) => {
 interface RootProps {
   children: React.ReactNode;
   className?: string;
-  user: User | undefined;
+  user?: User | Friend | null;
 }
 
 // # Component
@@ -66,6 +69,6 @@ const Root = ({ children, className, user }: RootProps) => {
 
 export const AvatarName = {
   Root,
-  Image,
+  Image: Avatar,
   FullName,
 };

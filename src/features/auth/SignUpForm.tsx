@@ -9,7 +9,7 @@ import RadioField from "./signup/RadioField";
 import Link from "next/link";
 import axios from "axios";
 import { useState } from "react";
-import { url } from "@/utils/urls";
+import { url } from "@/routes";
 import { CgSpinner } from "react-icons/cg";
 import { useRouter } from "next/navigation";
 import { FormName } from "./signup/FormName";

@@ -1,5 +1,5 @@
 import Card from "@/components/layouts/Card";
-import Dialog from "./Dialog";
+import DialogComposer from "./DialogComposer";
 import { DialogProvider } from "../context/dialog-context";
 import PhotoPost from "./PhotoPost";
 import Link from "next/link";
@@ -19,7 +19,7 @@ export default async function CardComposer() {
               <AvatarName.Image />
             </AvatarName.Root>
           </Link>
-          <Dialog />
+          <DialogComposer />
         </div>
         <PhotoPost />
       </DialogProvider>

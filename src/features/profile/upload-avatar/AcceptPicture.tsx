@@ -4,15 +4,16 @@ import { Button } from "@/components/ui/custom/button";
 import { DialogActions, DialogClose } from "@/components/ui/custom/dialog";
 import { useProfileAvatarContext } from "./context/profile-avatar";
 import { SuggestedImage } from "@/utils/constant";
-import { url } from "@/utils/urls";
+import { url } from "@/routes";
 import { useRef, useState } from "react";
-import { revalidatePath } from "next/cache";
+import { useRouter } from "next/navigation";
 
 // # Component
 export default function AcceptPicture() {
   const { selectedImage, setIsChose } = useProfileAvatarContext();
   const closeRef = useRef<HTMLButtonElement>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
   const handleSave = async () => {
     if (selectedImage === null) return console.log("Please select an image");
@@ -38,9 +39,9 @@ export default function AcceptPicture() {
       });
 
       if (response.ok) {
-        // revalidatePath("http://localhost:3000/");
         setIsChose(false);
         closeRef.current?.click();
+        router.refresh();
       }
     } catch (error) {
       console.error(error);

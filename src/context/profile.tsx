@@ -1,12 +1,11 @@
 "use client";
 
 import { User } from "@/types/api";
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, { createContext, useContext, ReactNode } from "react";
 
 // Define the shape of the context value
 interface ProfileValue {
   userProfile: User;
-  setUserProfile: (user: User) => void;
 }
 
 interface ProfileProviderProps {
@@ -22,11 +21,10 @@ export const ProfileProvider: React.FC<ProfileProviderProps> = ({
   children,
   user,
 }) => {
-  const [userProfile, setUserProfile] = useState(user);
+  const userProfile = user;
 
   const value: ProfileValue = {
     userProfile,
-    setUserProfile,
   };
 
   return (

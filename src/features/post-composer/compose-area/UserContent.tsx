@@ -12,7 +12,7 @@ interface UserContentProps {
 
 // # Component
 export default function UserContent({ className }: UserContentProps) {
-  const { user } = useUser();
+  const user = useUser();
   const { openPhoto } = useDialogContext();
   const [changeTextSize, setChangeTextSize] = useState<
     "text-base" | "text-2xl"
