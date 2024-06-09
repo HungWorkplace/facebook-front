@@ -1,15 +1,20 @@
-import { posts } from "@/utils/api/dummyData";
-import Item from "./Item";
-import { getPostsInNewsFeed } from "@/controllers/post";
+import NewsFeedItem from "./Item";
+import { getPostsByUserId, getPostsInNewsFeed } from "@/controllers/post";
+
+interface NewsFeedProps {
+  profileId?: string;
+}
 
 // # Component
-export default async function NewsFeed() {
-  const posts = await getPostsInNewsFeed();
+export default async function NewsFeed({ profileId }: NewsFeedProps) {
+  const posts = profileId
+    ? await getPostsByUserId(profileId)
+    : await getPostsInNewsFeed();
 
   return (
     <>
       {posts.map((post) => (
-        <Item key={post._id} post={post} />
+        <NewsFeedItem key={post._id} post={post} />
       ))}
     </>
   );

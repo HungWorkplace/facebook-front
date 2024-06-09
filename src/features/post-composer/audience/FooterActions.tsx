@@ -8,7 +8,7 @@ import { FaCheck } from "react-icons/fa";
 import { useCarousel } from "../custom/carousel";
 import { useDialogContext } from "../context/dialog-context";
 import { useState } from "react";
-import { Privacy } from "@/types/api";
+import { Privacy } from "@/types/model";
 import axios from "axios";
 import { url } from "@/routes";
 

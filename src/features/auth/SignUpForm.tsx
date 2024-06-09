@@ -15,7 +15,7 @@ import { useRouter } from "next/navigation";
 import { FormName } from "./signup/FormName";
 import { FormBirth } from "./signup/FormBirth";
 import FormCredentials from "./signup/FormCredentials";
-import { User } from "@/types/api";
+import { User } from "@/types/model";
 
 type ResponseType = {
   message?: string;

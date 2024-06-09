@@ -38,7 +38,7 @@ export default function Interact({ liked, setLiked, postId }: InteractProps) {
   };
 
   return (
-    <div className="mb-3 border-y border-[#ced0d4] py-1 text-sm text-[#5b626a]">
+    <div className="mb-3 mt-2 border-y border-[#ced0d4] py-1 text-sm text-[#5b626a]">
       <div className="flex h-9  w-full items-center">
         {/* Like button*/}
         <div

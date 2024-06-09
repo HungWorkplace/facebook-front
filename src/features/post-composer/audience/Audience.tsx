@@ -11,7 +11,7 @@ import Description from "./Description";
 import FooterActions from "./FooterActions";
 import { useDialogContext } from "../context/dialog-context";
 import { useState } from "react";
-import { Privacy } from "@/types/api";
+import { Privacy } from "@/types/model";
 
 // # Component
 export default function Audience() {

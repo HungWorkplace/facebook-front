@@ -3,7 +3,7 @@
 export type Privacy = "public" | "private";
 
 type Image = {
-  id: string;
+  _id: string;
   url: string;
   public_id?: string;
 };
@@ -31,6 +31,7 @@ export type User = {
   createdAt: string;
   surname: string;
   fullName: string;
+  isVerified: boolean;
   avatar?: Image;
   friends?: User[];
 };

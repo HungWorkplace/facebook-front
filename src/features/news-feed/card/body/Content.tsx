@@ -1,4 +1,4 @@
-import { Post } from "@/types/api";
+import { Post } from "@/types/model";
 import Images from "./Images";
 
 interface ContentProps {
@@ -8,8 +8,11 @@ interface ContentProps {
 // # Component
 export default function Content({ post }: ContentProps) {
   return (
-    <div className="text-2xs pt-2">
-      <div>{post.content}</div>
+    <div className="pt-2">
+      <div
+        dangerouslySetInnerHTML={{ __html: post.content }}
+        className="prose px-4 text-2xs"
+      />
       {post.images.length > 0 && <Images post={post} />}
     </div>
   );

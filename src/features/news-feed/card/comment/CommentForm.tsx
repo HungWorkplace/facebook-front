@@ -8,7 +8,7 @@ import axios from "axios";
 import { url } from "@/routes";
 import { useCommentContext } from "./context/comment-context";
 import { useUser } from "@/context/user-context";
-import { Comment } from "@/types/api";
+import { Comment } from "@/types/model";
 
 type ResponseValue = {
   comment: Comment;

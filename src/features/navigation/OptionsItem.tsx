@@ -1,9 +1,15 @@
-import { PropsWithChildren } from "react";
+import { ButtonHTMLAttributes, PropsWithChildren } from "react";
+
+interface RootProps
+  extends PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>> {}
 
 // # Component
-function Root({ children }: PropsWithChildren) {
+function Root({ children, ...props }: RootProps) {
   return (
-    <button className="inline-flex w-full items-center gap-3 rounded-lg p-2 outline-none hover:bg-hover-banner">
+    <button
+      className="inline-flex w-full items-center gap-3 rounded-lg p-2 outline-none hover:bg-hover-banner"
+      {...props}
+    >
       {children}
     </button>
   );

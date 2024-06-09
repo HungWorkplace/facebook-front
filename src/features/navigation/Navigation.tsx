@@ -1,11 +1,11 @@
 import YourProfile from "@/features/navigation/YourProfile";
 import { FaFacebook } from "react-icons/fa6";
-import { HiMagnifyingGlass } from "react-icons/hi2";
+// import { HiMagnifyingGlass } from "react-icons/hi2";
 
 import { HamburgerIcon, HomeIcon, HomeOutlineIcon } from "./navigation-icons";
 import ActiveLink from "./ActiveLink";
 import Link from "next/link";
-import CreateButton from "./CreateButton";
+import CreateButton from "./create-action/CreateButton";
 
 // # Component
 export default function Navigation() {
@@ -17,7 +17,7 @@ export default function Navigation() {
           <Link href={"/"}>
             <FaFacebook size={40} className="text-primary" />
           </Link>
-          <Search />
+          {/* <Search /> */}
         </div>
       </div>
 
@@ -49,10 +49,10 @@ export default function Navigation() {
   );
 }
 
-function Search() {
-  return (
-    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-background">
-      <HiMagnifyingGlass size={18} />
-    </span>
-  );
-}
+// function Search() {
+//   return (
+//     <span className="flex h-10 w-10 items-center justify-center rounded-full bg-background">
+//       <HiMagnifyingGlass size={18} />
+//     </span>
+//   );
+// }

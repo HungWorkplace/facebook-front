@@ -2,8 +2,8 @@
 
 import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
-import { users } from "@/utils/api/dummyData";
 import { AvatarName } from "@/components/AvatarName";
+import { useProfileContext } from "@/context/profile";
 
 interface ProfileTabsProps {
   className?: string;
@@ -13,7 +13,7 @@ interface ProfileTabsProps {
 export default function ProfileTabs({ className }: ProfileTabsProps) {
   const [freeze, setFreeze] = useState(false);
   const tabsRef = useRef<HTMLDivElement>(null);
-  const user = users[0];
+  const { userProfile } = useProfileContext();
 
   useEffect(() => {
     const scrollListener = () => {
@@ -59,7 +59,7 @@ export default function ProfileTabs({ className }: ProfileTabsProps) {
             onClick={handleScrollUp}
             className="cursor-pointer rounded-lg p-2 hover:bg-hover-item-radio"
           >
-            <AvatarName.Root user={user} className="gap-3">
+            <AvatarName.Root user={userProfile} className="gap-3">
               <AvatarName.Image className="" />
               <AvatarName.FullName className="" />
             </AvatarName.Root>

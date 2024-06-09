@@ -44,6 +44,8 @@ export default function ChoosePicture() {
           ref={inputRef}
           onChange={handleSelectedImage}
           type="file"
+          accept="image/*"
+          multiple={false}
           name="photo"
           className="hidden"
         />

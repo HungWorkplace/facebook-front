@@ -15,6 +15,8 @@ export const url = {
       getMe: `${BASE_URL}/api/users/me`,
       getUserById: (userId: string) => `${BASE_URL}/api/users/${userId}`,
       getFriends: `${BASE_URL}/api/users/me/friends`,
+      getImagesByUserId: (userId: string) =>
+        `${BASE_URL}/api/users/${userId}/images`,
     },
     post: {
       uploadAvatar: `${BASE_URL}/api/users/avatar`,
@@ -28,7 +30,7 @@ export const url = {
       getMyPosts: `${BASE_URL}/api/posts/me`,
       getPostsInNewsFeed: `${BASE_URL}/api/posts`,
       getPostsByUserId: (userId: string) =>
-        `${BASE_URL}/api/posts/user/${userId}`,
+        `${BASE_URL}/api/posts/users/${userId}`,
       getCommentsByPostId: (postId: string) =>
         `${BASE_URL}/api/posts/${postId}/comments`,
     },
@@ -52,8 +54,8 @@ export const url = {
         `${BASE_URL}/api/posts/comments/${commentId}/like`,
     },
     delete: {
-      deleteComment: (commentId: string) =>
-        `${BASE_URL}/api/comments/${commentId}`,
+      deleteComment: (postId: string, commentId: string) =>
+        `${BASE_URL}/api/posts/${postId}/comments/${commentId}`,
     },
   },
 };

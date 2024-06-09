@@ -1,6 +1,6 @@
 "use client";
 
-import { Comment, User } from "@/types/api";
+import { Comment, User } from "@/types/model";
 import React, { createContext, useContext, useState, ReactNode } from "react";
 
 export interface CommentState extends Comment {
@@ -14,6 +14,7 @@ interface CommentValue {
   pendingComment: (user: User, postId: string, content: string) => void;
   successComment: (newId: string) => void;
   errorComment: () => void;
+  deleteComment: (commentId: string) => void;
 }
 
 interface CommentProviderProps {
@@ -25,7 +26,7 @@ interface CommentProviderProps {
 // Create the context
 const CommentContext = createContext<CommentValue | null>(null);
 
-// Provider
+// # Provider
 export const CommentProvider: React.FC<CommentProviderProps> = ({
   children,
   comments,
@@ -68,12 +69,19 @@ export const CommentProvider: React.FC<CommentProviderProps> = ({
     );
   };
 
+  const deleteComment = (commentId: string) => {
+    setCommentsState((prevComments) =>
+      prevComments.filter((comment) => comment._id !== commentId),
+    );
+  };
+
   const value: CommentValue = {
     postId,
     commentsState,
     pendingComment,
     successComment,
     errorComment,
+    deleteComment,
   };
 
   return (

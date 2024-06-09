@@ -4,21 +4,14 @@ import * as React from "react";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
 
 import { cn } from "@/lib/utils";
-import { useHeaderContext } from "../context/header-context";
 
-const Popover = ({ children }: React.PropsWithChildren) => {
-  const { openPopover, setOpenPopover } = useHeaderContext();
-
-  return (
-    <PopoverPrimitive.Root open={openPopover} onOpenChange={setOpenPopover}>
-      {children}
-    </PopoverPrimitive.Root>
-  );
-};
+const Popover = PopoverPrimitive.Root;
 
 const PopoverTrigger = PopoverPrimitive.Trigger;
 
 const PopoverArrow = PopoverPrimitive.Arrow;
+
+const PopoverClose = PopoverPrimitive.Close;
 
 const PopoverContent = React.forwardRef<
   React.ElementRef<typeof PopoverPrimitive.Content>,
@@ -39,4 +32,4 @@ const PopoverContent = React.forwardRef<
 ));
 PopoverContent.displayName = PopoverPrimitive.Content.displayName;
 
-export { Popover, PopoverTrigger, PopoverContent, PopoverArrow };
+export { Popover, PopoverTrigger, PopoverContent, PopoverArrow, PopoverClose };

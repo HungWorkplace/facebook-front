@@ -1,7 +1,7 @@
 "use client";
 
 import React, { createContext, useContext } from "react";
-import { User } from "@/types/api";
+import { User } from "@/types/model";
 
 interface UserContextProps {
   children: React.ReactNode;

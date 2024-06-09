@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 import Navigation from "@/features/navigation/Navigation";
-import { CounterStoreProvider } from "@/stores/zustand/store-provider";
+import { ZustandProvider } from "@/stores/zustand/store-provider";
 import { UserProvider } from "@/context/user-context";
 import { getUser } from "@/controllers/user";
 
@@ -19,13 +19,14 @@ export default async function HomeLayout({
 
   return (
     <body className="bg-background">
-      <CounterStoreProvider>
+      <ZustandProvider>
         <UserProvider user={user}>
           <Navigation />
           <div className="h-14 w-full"></div>
           {children}
+          <div className="h-[30vh] w-full"></div>
         </UserProvider>
-      </CounterStoreProvider>
+      </ZustandProvider>
     </body>
   );
 }

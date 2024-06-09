@@ -1,6 +1,6 @@
 "use client";
 
-import { User } from "@/types/api";
+import { User } from "@/types/model";
 import React, { createContext, useContext, ReactNode } from "react";
 
 // Define the shape of the context value

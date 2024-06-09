@@ -6,10 +6,11 @@ import { IoClose } from "react-icons/io5";
 import { MdAddPhotoAlternate } from "react-icons/md";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { useDialogContext } from "../context/dialog-context";
+import Image from "next/image";
 
 // # Component
 export default function UpPhotos() {
-  const { setOpenPhoto } = useDialogContext();
+  const { setOpenPhoto, setPhotoFile } = useDialogContext();
   const [selectedImage, setSelectedImage] = useState<
     string | ArrayBuffer | null
   >(null);
@@ -24,6 +25,7 @@ export default function UpPhotos() {
       // Event listener for when the file is loaded
       reader.onloadend = () => {
         setSelectedImage(reader.result);
+        setPhotoFile(file);
       };
       reader.readAsDataURL(file);
     }
@@ -61,9 +63,11 @@ export default function UpPhotos() {
           </>
         )}
         {selectedImage && (
-          <img
+          <Image
             src={selectedImage as string}
             alt="Selected"
+            width={300}
+            height={300}
             className="h-full w-full rounded-lg object-cover"
           />
         )}

@@ -59,7 +59,7 @@ const config: Config = {
       "1920": "1920px",
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 };
 
 export default config;

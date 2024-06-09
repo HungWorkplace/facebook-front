@@ -50,9 +50,9 @@ export function Input({
         block: "center",
       });
 
-      contentRef.current?.focus();
       setIsClicked(true);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [scrollIntoView]);
 
   // Event handler: onInput

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Statistics from "../body/Statistics";
 import Interact from "./Interact";
-import { Post, User } from "@/types/api";
+import { Post, User } from "@/types/model";
 
 interface ReactionProps {
   post: Post;
@@ -35,7 +35,7 @@ export default function Reaction({ post, user }: ReactionProps) {
   }, [liked]);
 
   return (
-    <div>
+    <div className="px-4">
       <Statistics postLikes={likedUserIds} />
       <Interact liked={liked} setLiked={setLiked} postId={post._id} />
     </div>

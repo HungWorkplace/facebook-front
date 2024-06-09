@@ -1,9 +1,10 @@
 "use client";
 
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Post } from "@/types/api";
+import { Post } from "@/types/model";
 import { useEffect, useState } from "react";
 import { BsImageAlt } from "react-icons/bs";
+import NextImage from "next/image";
 
 interface ImagesProps {
   post: Post;
@@ -27,7 +28,7 @@ export default function Images({ post }: ImagesProps) {
 
   if (!aspectRatio)
     return (
-      <div className="flex h-64 w-full animate-pulse items-center justify-center bg-gray-300">
+      <div className="flex h-64 w-full animate-pulse items-center justify-center bg-gray-200">
         <BsImageAlt className="text-white" size={50} />
       </div>
     );
@@ -35,8 +36,10 @@ export default function Images({ post }: ImagesProps) {
   return (
     // Don't use AspectRatio.Root here, because it doesn't have 'use client' in it
     <AspectRatio ratio={aspectRatio} className="mt-2">
-      <img
+      <NextImage
         src={post.images[0].url}
+        width={500}
+        height={617}
         alt="post"
         className="h-full w-full object-cover"
       />

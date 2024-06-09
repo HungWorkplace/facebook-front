@@ -6,6 +6,7 @@ import ProfileTabs from "@/features/profile/ProfileTabs";
 import { cn } from "@/lib/utils";
 import { ProfileProvider } from "@/context/profile";
 import { getUser, getUserById } from "@/controllers/user";
+import Photos from "@/features/profile/photos/Photos";
 
 interface UserProfilePageProps {
   params: {
@@ -42,9 +43,16 @@ export default async function UserProfilePage({
           "925:max-w-[56.75rem] 925:flex-row",
         )}
       >
-        {/* <Photos className={cn("mx-auto mb-4 px-2", "925:flex-1")} /> */}
+        <Photos
+          user={userData}
+          className={cn("mx-auto mb-4 px-2", "925:flex-1")}
+        />
 
-        <NewsFeedLayout className={cn("mx-2", "925:w-[31.25rem]")} />
+        <NewsFeedLayout
+          isNewsFeed={false}
+          userProfile={userData}
+          className={cn("mx-2", "925:w-[31.25rem]")}
+        />
       </div>
     </ProfileProvider>
   );

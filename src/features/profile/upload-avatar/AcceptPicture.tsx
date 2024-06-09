@@ -7,6 +7,7 @@ import { SuggestedImage } from "@/utils/constant";
 import { url } from "@/routes";
 import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 // # Component
 export default function AcceptPicture() {
@@ -51,9 +52,11 @@ export default function AcceptPicture() {
 
   return (
     <div>
-      <img
-        src={selectedImage?.base64}
+      <Image
+        src={selectedImage?.base64 || ""}
         alt="before accept to upload picture"
+        width={300}
+        height={300}
         className="mx-auto my-4 size-[18.75rem] rounded-full object-cover"
       />
       <DialogActions>

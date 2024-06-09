@@ -25,6 +25,7 @@ export default function Home() {
         {/* 31.25rem 500px */}
         <div className={cn("flex-1 pt-6", "900:px-8")}>
           <NewsFeedLayout
+            isNewsFeed
             className={cn(
               "mx-auto w-full max-w-[31.25rem]",
               "1310:w-[31.25rem]",

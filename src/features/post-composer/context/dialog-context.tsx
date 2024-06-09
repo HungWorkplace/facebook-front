@@ -13,6 +13,10 @@ interface DialogValue {
   setOpenPhoto: (open: boolean) => void;
   privacy: Privacy;
   setPrivacy: (privacy: Privacy) => void;
+  content: string;
+  setContent: (content: string) => void;
+  photoFile: File | null;
+  setPhotoFile: (file: File | null) => void;
 }
 
 interface DialogProviderProps {
@@ -27,9 +31,11 @@ export const DialogProvider: React.FC<DialogProviderProps> = ({ children }) => {
   const user = useUser();
   const [openDialog, setOpenDialog] = useState(false);
   const [openPhoto, setOpenPhoto] = useState(false);
+  const [photoFile, setPhotoFile] = useState<File | null>(null);
   const [privacy, setPrivacy] = useState<Privacy>(
     user.userSettings.postPrivacy,
   );
+  const [content, setContent] = useState("");
 
   const openOrReset = (value: boolean) => {
     if (!value) {
@@ -46,6 +52,10 @@ export const DialogProvider: React.FC<DialogProviderProps> = ({ children }) => {
     setOpenPhoto,
     privacy,
     setPrivacy,
+    content,
+    setContent,
+    photoFile,
+    setPhotoFile,
   };
 
   return (

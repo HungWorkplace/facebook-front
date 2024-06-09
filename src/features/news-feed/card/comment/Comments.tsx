@@ -2,10 +2,10 @@
 
 import { cn } from "@/lib/utils";
 import UserComment from "./UserComment";
-import CommentOptionsMenu from "./CommentOptionsMenu";
 import { AvatarName } from "@/components/AvatarName";
 import Link from "next/link";
 import { useCommentContext } from "./context/comment-context";
+import { useState } from "react";
 
 interface CommentProps {
   className?: string;
@@ -14,10 +14,25 @@ interface CommentProps {
 // # Component
 export default function Comments({ className }: CommentProps) {
   const { commentsState } = useCommentContext();
+  const [showAll, setShowAll] = useState(false);
+
+  if (!commentsState) return null;
+
+  // 3 comments are displayed
+  const limitedComments = showAll ? commentsState : commentsState.slice(0, 3);
 
   return (
-    <>
-      {commentsState.map((comment) => (
+    <div className="px-4">
+      {commentsState.length > 3 && (
+        <p
+          onClick={() => setShowAll((prevShowAll) => !prevShowAll)}
+          className="my-3 cursor-pointer text-sm font-semibold text-secondary-foreground"
+        >
+          View {showAll ? "less" : "more"} comments
+        </p>
+      )}
+
+      {limitedComments.map((comment) => (
         <div
           key={comment._id}
           className={cn("flex gap-1.5 text-sm", className)}
@@ -29,15 +44,12 @@ export default function Comments({ className }: CommentProps) {
             </AvatarName.Root>
           </Link>
 
-          <div className="flex">
+          <div className="flex items-center">
             {/* Comment on right side*/}
             <UserComment comment={comment} />
-
-            {/* 3 dots Action */}
-            <CommentOptionsMenu className="" />
           </div>
         </div>
       ))}
-    </>
+    </div>
   );
 }

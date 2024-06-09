@@ -6,7 +6,7 @@ import { FaCaretDown } from "react-icons/fa6";
 import { useCarousel } from "../custom/carousel";
 import { GiEarthAsiaOceania } from "react-icons/gi";
 import { useDialogContext } from "../context/dialog-context";
-import { Privacy } from "@/types/api";
+import { Privacy } from "@/types/model";
 
 // # Component
 export default function AudienceTrigger() {

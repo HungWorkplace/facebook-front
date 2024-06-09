@@ -1,6 +1,6 @@
 import { getToken } from "@/utils/api/getToken";
 import { url } from "@/routes";
-import { Friend, User } from "@/types/api";
+import { Friend, Image, User } from "@/types/model";
 import { cache } from "react";
 import { notFound, redirect } from "next/navigation";
 
@@ -56,4 +56,15 @@ export const getFriends = cache(async () => {
     console.error(error);
     return [];
   }
+});
+
+export const getImagesByUserId = cache(async (userId: string) => {
+  const response = await fetch(url.users.get.getImagesByUserId(userId));
+
+  if (!response.ok) {
+    notFound();
+  }
+
+  const res = (await response.json()) as { images: Image[] };
+  return res.images;
 });

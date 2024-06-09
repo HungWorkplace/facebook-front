@@ -3,7 +3,7 @@
 import { useState } from "react";
 import LikeClick from "./LikeClick";
 import LikeComment from "./LikeComment";
-import { Comment } from "@/types/api";
+import { Comment } from "@/types/model";
 
 interface LikeContainerProps {
   comment: Comment;

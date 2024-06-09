@@ -56,10 +56,9 @@ DialogContent.displayName = DialogPrimitive.Content.displayName;
 // #Header
 const DialogHeader = ({
   className,
-  iconSide = "right",
   children,
   ...props
-}: React.HTMLAttributes<HTMLDivElement> & { iconSide?: "right" | "left" }) => (
+}: React.HTMLAttributes<HTMLDivElement>) => (
   <div
     className={cn(
       "relative flex h-[3.75rem] items-center justify-center border-b",
@@ -89,6 +88,7 @@ const DialogIcon = React.forwardRef<HTMLSpanElement, IconProps>(
             "left-4": iconSide === "left",
             "right-4": iconSide === "right",
           },
+          className,
         )}
         {...props}
       >
@@ -115,10 +115,12 @@ const DialogFooter = ({
 DialogFooter.displayName = "DialogFooter";
 
 const DialogActions = ({ children }: React.PropsWithChildren) => (
-  <div className="border-divider border-di space-x-1 p-4 text-right">
+  <div className="border-di space-x-1 border-divider p-4 text-right">
     {children}
   </div>
 );
+
+DialogActions.displayName = "DialogActions";
 
 const DialogTitle = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Title>,
@@ -150,6 +152,8 @@ const DialogBody = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div ref={ref} className={cn("p-4", className)} {...props} />
 ));
+
+DialogBody.displayName = "DialogBody";
 
 export {
   Dialog,

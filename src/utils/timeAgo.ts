@@ -2,8 +2,14 @@ import { DateTime } from "luxon";
 
 export function timeAgo(createdAt: string) {
   const date = DateTime.fromISO(createdAt);
+  const now = DateTime.now();
+  const diffInSeconds = now.diff(date, "seconds").seconds;
 
-  return date.toRelative();
+  if (diffInSeconds < 60) {
+    return "just now";
+  } else {
+    return date.toRelative();
+  }
 }
 
 export function timeAgoShort(createdAt: string) {

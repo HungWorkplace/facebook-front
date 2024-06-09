@@ -1,10 +1,10 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { PiWarningFill } from "react-icons/pi";
-import { useFormState, useFormStatus } from "react-dom";
+import { useFormState } from "react-dom";
 import * as actions from "@/actions/auth";
 import { useRouter } from "next/navigation";
+import { InputField } from "./login/InputField";
 
 export default function LoginForm() {
   const [formState, action] = useFormState(actions.login, { errors: {} });
@@ -50,55 +50,5 @@ export default function LoginForm() {
         Log in
       </button>
     </form>
-  );
-}
-
-interface InputFieldType {
-  type: string;
-  autoFocus?: boolean;
-  placeholder: string;
-  error: string[] | undefined;
-  className?: string;
-}
-
-function InputField({
-  type,
-  error,
-  placeholder,
-  autoFocus = false,
-  className,
-}: InputFieldType) {
-  return (
-    <div className={className}>
-      <div className="relative">
-        <input
-          type={type}
-          name={type}
-          autoFocus={autoFocus}
-          placeholder={placeholder}
-          className={cn(
-            "h-10 w-full rounded-md border px-4 py-6 text-base outline-none placeholder:text-black/60 focus:border-primary",
-            { "border-red-500 focus:border-red-500": error },
-          )}
-        />
-
-        {error && (
-          <PiWarningFill
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500"
-            size={22}
-          />
-        )}
-      </div>
-
-      {error && (
-        <div className="mt-1">
-          {error.map((message, i) => (
-            <p key={i} className="text-left font-roboto text-sm text-red-600">
-              {message}
-            </p>
-          ))}
-        </div>
-      )}
-    </div>
   );
 }

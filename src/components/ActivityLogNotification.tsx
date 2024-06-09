@@ -1,9 +1,9 @@
 "use client";
 
 import Card from "@/components/layouts/Card";
-import { useNewsFeedContext } from "./context/news-feed-context";
 import { FaWindowClose } from "react-icons/fa";
 import { Button } from "@/components/ui/custom/button";
+import { useNewsFeedContext } from "@/features/news-feed/context/news-feed-context";
 
 // # Component
 export default function ActivityLogNotification() {

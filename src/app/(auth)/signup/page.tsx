@@ -16,7 +16,7 @@ export default function SignUpPage() {
       <div className="mx-auto w-[27rem] rounded-lg bg-white shadow-lg">
         <header className="border-b p-4 text-center">
           <h1 className="text-2xl font-medium">Create a new account</h1>
-          <p className="text-sm text-gray-700">It's quick and easy.</p>
+          <p className="text-sm text-gray-700">It&apos;s quick and easy.</p>
         </header>
 
         <main className="p-4">

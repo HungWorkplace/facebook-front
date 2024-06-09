@@ -1,26 +1,22 @@
 import { createStore } from "zustand/vanilla";
 
-export type CounterState = {
-  count: number;
+export type StateType = {
+  composeRef: HTMLButtonElement | null;
 };
 
-export type CounterActions = {
-  decrementCount: () => void;
-  incrementCount: () => void;
+export type ActionType = {
+  setComposeRef: (ref: HTMLButtonElement | null) => void;
 };
 
-export type CounterStore = CounterState & CounterActions;
+export type StoreType = StateType & ActionType;
 
-export const defaultInitState: CounterState = {
-  count: 0,
+export const defaultInitState: StateType = {
+  composeRef: null,
 };
 
-export const createCounterStore = (
-  initState: CounterState = defaultInitState,
-) => {
-  return createStore<CounterStore>()((set) => ({
+export const createZustandStore = (initState: StateType = defaultInitState) => {
+  return createStore<StoreType>()((set) => ({
     ...initState,
-    decrementCount: () => set((state) => ({ count: state.count - 1 })),
-    incrementCount: () => set((state) => ({ count: state.count + 1 })),
+    setComposeRef: (ref) => set({ composeRef: ref }),
   }));
 };

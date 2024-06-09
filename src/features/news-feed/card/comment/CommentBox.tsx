@@ -14,7 +14,7 @@ export default function CommentBox({ className }: CommentBoxProps) {
   const user = useUser();
 
   return (
-    <div className={cn("flex gap-1.5", className)}>
+    <div className={cn("flex gap-1.5 px-4", className)}>
       {/* Avatar on the left */}
       <AvatarName.Root user={user}>
         <AvatarName.Image className="size-8" />

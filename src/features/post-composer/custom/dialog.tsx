@@ -46,7 +46,6 @@ const DialogContent = React.forwardRef<
       <div className="grid place-content-center">
         <DialogPrimitive.Content
           ref={ref}
-          onOpenAutoFocus={(e) => e.preventDefault()}
           className={cn(
             "h-full min-h-[26.75rem] w-[26rem] overflow-hidden bg-white shadow-lg outline-none",
             className,

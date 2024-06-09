@@ -1,6 +1,6 @@
 import { AvatarName } from "@/components/AvatarName";
 import { ItemSideBar } from "@/components/layouts/ItemSideBar";
-import { Friend, User } from "@/types/api";
+import { Friend, User } from "@/types/model";
 import Link from "next/link";
 
 interface SidebarItemProps {

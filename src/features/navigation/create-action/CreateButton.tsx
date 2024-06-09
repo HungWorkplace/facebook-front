@@ -6,8 +6,7 @@ import {
 } from "@/components/ui/popover";
 import { IoMdAdd } from "react-icons/io";
 import { Button } from "@/components/ui/custom/button";
-import { OptionsItem } from "./OptionsItem";
-import { PiNotePencilFill } from "react-icons/pi";
+import CreateItem from "./CreateItem";
 
 // # Component
 export default function CreateButton() {
@@ -32,16 +31,7 @@ export default function CreateButton() {
           align="end"
           className="w-[22.5rem] rounded-lg border-none p-2 pt-3 text-black shadow-popover"
         >
-          <h1 className="px-2 pb-3 text-2xl font-bold">Create</h1>
-          <OptionsItem.Root>
-            <OptionsItem.Icon>
-              <PiNotePencilFill size={20} color="black" />
-            </OptionsItem.Icon>
-            <OptionsItem.Text
-              heading="Post"
-              description="Share a post on NewsFeed"
-            />
-          </OptionsItem.Root>
+          <CreateItem />
         </PopoverContent>
       </Popover>
     </>

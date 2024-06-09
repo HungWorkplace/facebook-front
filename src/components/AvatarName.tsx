@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Friend, User } from "@/types/api";
+import { Friend, User } from "@/types/model";
 import Image from "next/image";
 import React, {
   Children,
@@ -27,6 +27,7 @@ const Avatar = ({ className, user }: ImageProps) => {
       src={user?.avatar?.url || "/no-avatar.jpg"}
       width={60}
       height={60}
+      priority
       alt="avatar"
       className={cn(
         "press aspect-square size-10 cursor-pointer rounded-full object-cover transition-all hover:brightness-90 active:brightness-75",

@@ -10,7 +10,7 @@ export default function Statistics({ postLikes }: StatisticsProps) {
   if (postLikes.length === 0) return null;
 
   return (
-    <div className="flex items-center gap-1.5 py-2">
+    <div className="flex items-center gap-1.5 pt-2">
       <Image
         src="/like.svg"
         width={18}

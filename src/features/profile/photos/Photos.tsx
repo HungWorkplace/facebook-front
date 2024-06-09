@@ -1,13 +1,21 @@
 import Card from "@/components/layouts/Card";
+import { getImagesByUserId } from "@/controllers/user";
 import { cn } from "@/lib/utils";
+import { type Image as IImage, User } from "@/types/model";
 import Image from "next/image";
 
 interface PhotosProps {
   className?: string;
+  user: User;
 }
 
 // # Component
-export default function Photos({ className }: PhotosProps) {
+export default async function Photos({ className, user }: PhotosProps) {
+  const images = await getImagesByUserId(user._id);
+
+  // limit the number of images to 9
+  const limitedImages = images.slice(0, 9);
+
   return (
     <div className={cn("", className)}>
       <Card>
@@ -15,8 +23,8 @@ export default function Photos({ className }: PhotosProps) {
           <h2 className="text-xl font-bold">Photos</h2>
         </header>
         <main>
-          <div className="grid grid-cols-3 grid-rows-3 gap-1.5 overflow-hidden rounded-md">
-            <ImageList />
+          <div className="grid grid-cols-3 gap-1.5 overflow-hidden rounded-md">
+            <ImageList photos={limitedImages} />
           </div>
         </main>
       </Card>
@@ -24,14 +32,19 @@ export default function Photos({ className }: PhotosProps) {
   );
 }
 
-function ImageList() {
+interface ImageListProps {
+  photos: IImage[];
+}
+
+// # Sub-component
+function ImageList({ photos }: ImageListProps) {
   return (
     <>
-      {Array.from({ length: 9 }).map((_, index) => (
+      {photos.map((image) => (
         <Image
-          key={index}
-          src={getRandomImageUrl()}
-          alt="random"
+          key={image._id}
+          src={image.url}
+          alt="your photo"
           width={300}
           height={300}
           className="aspect-square w-full object-cover"
@@ -39,18 +52,4 @@ function ImageList() {
       ))}
     </>
   );
-}
-
-function getRandomImageUrl() {
-  // Random width and height between 100 and 1000
-  const width = Math.floor(Math.random() * 901) + 100;
-  const height = Math.floor(Math.random() * 901) + 100;
-
-  // Random ID between 1 and 1000
-  const id = Math.floor(Math.random() * 100) + 1;
-
-  // Generate the URL
-  const url = `https://picsum.photos/id/${id}/${width}/${height}`;
-
-  return url;
 }

@@ -6,19 +6,16 @@ import {
 } from "@/components/ui/form";
 import { FormSchema } from "@/lib/FormSchema";
 import { type ControllerRenderProps } from "react-hook-form";
-
-import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Button, buttonVariants } from "@/components/ui/custom/button";
+import { buttonVariants } from "@/components/ui/custom/button";
 import { cn } from "@/lib/utils";
 
 interface RadioFieldType {
   field: ControllerRenderProps<FormSchema, any>;
-  className?: string;
 }
 
 // # Component
-export default function RadioField({ field, className }: RadioFieldType) {
+export default function RadioField({ field }: RadioFieldType) {
   return (
     <FormItem className="pt-1">
       <FormLabel className="text-xs text-gray-700">Gender</FormLabel>

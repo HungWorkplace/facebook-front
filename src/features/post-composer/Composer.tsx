@@ -1,12 +1,12 @@
 import { X } from "lucide-react";
 import { DialogClose, DialogFooter } from "./custom/dialog";
-import { Button } from "@/components/ui/custom/button";
 import AudienceTrigger from "./audience/AudienceTrigger";
 import UserContent from "./compose-area/UserContent";
 import PostAugmenter from "./footer-actions/PostAugmenter";
 import Title from "./components/Title";
 import { getUser } from "@/controllers/user";
 import { AvatarName } from "@/components/AvatarName";
+import Submit from "./footer-actions/Submit";
 
 // # Component
 export default async function Composer() {
@@ -20,15 +20,14 @@ export default async function Composer() {
         </DialogClose>
       </Title>
 
+      {/* Author of the post */}
       <div className="mx-4 flex items-center gap-3 py-4">
         <AvatarName.Root user={user}>
           <AvatarName.Image />
         </AvatarName.Root>
 
         <div className="flex-1 space-y-1">
-          <div className="text-sm font-semibold">
-            {user?.firstName} {user?.surname}
-          </div>
+          <div className="text-sm font-semibold">{user.fullName}</div>
           <AudienceTrigger />
         </div>
       </div>
@@ -38,13 +37,7 @@ export default async function Composer() {
       <DialogFooter className="flex flex-col py-4">
         <PostAugmenter />
 
-        <Button
-          variant="default"
-          className="mx-4 mt-4 disabled:cursor-no-drop disabled:bg-secondary-button-background disabled:text-disabled-button-text disabled:opacity-100"
-          disabled
-        >
-          Post
-        </Button>
+        <Submit />
       </DialogFooter>
     </div>
   );
