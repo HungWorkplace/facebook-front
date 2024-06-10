@@ -75,7 +75,12 @@ export async function login(
     // set token to the cookie
     const day = process.env.JWT_EXPIRES_DAY || 30;
     const expires = new Date(Date.now() + Number(day) * 24 * 60 * 60 * 1000);
-    cookies().set("jwt", data.token, { expires, httpOnly: true });
+    cookies().set("jwt", data.token, {
+      expires,
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
+    });
 
     return { user: data.user };
   } catch (error) {

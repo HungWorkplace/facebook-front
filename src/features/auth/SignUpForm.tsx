@@ -54,7 +54,6 @@ export default function SignUpForm() {
   } = form;
 
   const onSubmit = async (values: FormSchema) => {
-    console.log(values);
     const data = {
       ...values,
       birthday: new Date(
