@@ -24,7 +24,6 @@ export default function Interact({ liked, setLiked, postId }: InteractProps) {
   const handleLikeClick = async () => {
     const prevLiked = liked;
     setLiked(!liked);
-
     try {
       await axios.patch(
         url.posts.patch.likePost(postId),

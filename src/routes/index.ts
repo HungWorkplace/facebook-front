@@ -1,4 +1,9 @@
-const BASE_URL = "http://localhost:5000";
+// const BASE_URL =
+//   process.env.NODE_ENV === "development"
+//     ? process.env.NEXT_PUBLIC_DEV_BASE_URL
+//     : process.env.NEXT_PUBLIC_PROD_BASE_URL;
+
+const BASE_URL = "https://facebook-back.vercel.app";
 
 export const url = {
   auth: {
