@@ -5,10 +5,11 @@ import { useItemContext } from "../../context/item-context";
 import * as ContentEditable from "./content-editable";
 import { IoSend } from "react-icons/io5";
 import axios from "axios";
-import { url } from "@/routes";
+import { url } from "@/MVC/routes";
 import { useCommentContext } from "./context/comment-context";
 import { useUser } from "@/context/user-context";
 import { Comment } from "@/types/model";
+import { headersTokenClient } from "@/MVC/utils/headersTokenClient";
 
 type ResponseValue = {
   comment: Comment;
@@ -25,6 +26,8 @@ export default function CommentForm() {
   const handleSubmit = async () => {
     setInputValue("");
 
+    const headers = await headersTokenClient();
+
     try {
       pendingComment(user, postId, inputValue);
 
@@ -33,7 +36,7 @@ export default function CommentForm() {
         {
           content: inputValue,
         },
-        { withCredentials: true },
+        headers,
       );
 
       successComment(response.data.comment._id);

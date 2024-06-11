@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 import Navigation from "@/features/navigation/Navigation";
+import { Toaster } from "@/components/ui/custom/toaster";
 import { ZustandProvider } from "@/stores/zustand/store-provider";
 import { UserProvider } from "@/context/user-context";
-import { getUser } from "@/controllers/user";
+import { getUser } from "@/MVC/controllers/user";
 
 export const metadata: Metadata = {
   title: "Facebook",
@@ -24,6 +25,7 @@ export default async function HomeLayout({
           <Navigation />
           <div className="h-14 w-full"></div>
           {children}
+          <Toaster />
           <div className="h-[30vh] w-full"></div>
         </UserProvider>
       </ZustandProvider>

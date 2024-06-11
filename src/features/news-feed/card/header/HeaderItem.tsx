@@ -5,8 +5,9 @@ import { cn } from "@/lib/utils";
 import { PopoverClose } from "./custom/popover";
 import { useRef } from "react";
 import axios from "axios";
-import { url } from "@/routes";
+import { url } from "@/MVC/routes";
 import { useRouter } from "next/navigation";
+import { headersTokenClient } from "@/MVC/utils/headersTokenClient";
 
 interface ItemProps {
   className?: string;
@@ -21,9 +22,9 @@ export function DeletePost({ className, postId }: ItemProps) {
     closeRef.current?.click();
 
     try {
-      await axios.delete(url.posts.delete.deletePost(postId), {
-        withCredentials: true,
-      });
+      const headers = await headersTokenClient();
+
+      await axios.delete(url.posts.delete.deletePost(postId), headers);
 
       router.refresh();
     } catch (error) {

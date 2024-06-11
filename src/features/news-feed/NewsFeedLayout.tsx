@@ -3,7 +3,7 @@ import CardComposer from "../post-composer/trigger/CardComposer";
 import { NewsFeedProvider } from "./context/news-feed-context";
 import NewsFeed from "./NewsFeed";
 import { User } from "@/types/model";
-import { getUser } from "@/controllers/user";
+import { getUser } from "@/MVC/controllers/user";
 
 interface NewsFeedProps {
   className?: string;

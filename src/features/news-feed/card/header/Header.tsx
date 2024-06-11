@@ -13,7 +13,7 @@ import {
 import Link from "next/link";
 import { DeletePost } from "./HeaderItem";
 import { AvatarName } from "@/components/AvatarName";
-import { getUser } from "@/controllers/user";
+import { getUser } from "@/MVC/controllers/user";
 import VerifyIcon from "@/components/svg/VerifyIcon";
 
 interface HeaderProps {

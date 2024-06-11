@@ -9,13 +9,13 @@ import RadioField from "./signup/RadioField";
 import Link from "next/link";
 import axios from "axios";
 import { useState } from "react";
-import { url } from "@/routes";
 import { CgSpinner } from "react-icons/cg";
 import { useRouter } from "next/navigation";
 import { FormName } from "./signup/FormName";
 import { FormBirth } from "./signup/FormBirth";
 import FormCredentials from "./signup/FormCredentials";
 import { User } from "@/types/model";
+import { url } from "@/MVC/routes";
 
 type ResponseType = {
   message?: string;

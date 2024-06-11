@@ -4,7 +4,7 @@ import { DialogProvider } from "../context/dialog-context";
 import PhotoPost from "./PhotoPost";
 import Link from "next/link";
 import { AvatarName } from "@/components/AvatarName";
-import { getUser } from "@/controllers/user";
+import { getUser } from "@/MVC/controllers/user";
 
 // # Component
 export default async function CardComposer() {

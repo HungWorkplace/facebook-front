@@ -2,7 +2,8 @@
 
 import { useUser } from "@/context/user-context";
 import { cn } from "@/lib/utils";
-import { url } from "@/routes";
+import { url } from "@/MVC/routes";
+import { headersTokenClient } from "@/MVC/utils/headersTokenClient";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -28,11 +29,9 @@ export default function LikeClick({
   const handleLikeClick = async () => {
     changeLikes(isLiked ? "remove" : "add", user._id);
     try {
-      await axios.patch(
-        url.comments.patch.likeComment(commentId),
-        {},
-        { withCredentials: true },
-      );
+      const headers = await headersTokenClient();
+
+      await axios.patch(url.comments.patch.likeComment(commentId), {}, headers);
     } catch (error) {
       console.error(error);
       changeLikes(isLiked ? "remove" : "add", user._id);

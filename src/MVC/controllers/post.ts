@@ -1,6 +1,6 @@
-import { url } from "@/routes";
-import { headersConfig } from "./user";
+import { url } from "@/MVC/routes";
 import { Comment, Post } from "@/types/model";
+import { headersConfig } from "../utils/headerToken";
 
 export const getPostsInNewsFeed = async () => {
   const headers = headersConfig();

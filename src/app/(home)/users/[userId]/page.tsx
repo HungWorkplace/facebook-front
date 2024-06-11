@@ -5,7 +5,7 @@ import ProfileHeader from "@/features/profile/ProfileHeader";
 import ProfileTabs from "@/features/profile/ProfileTabs";
 import { cn } from "@/lib/utils";
 import { ProfileProvider } from "@/context/profile";
-import { getUser, getUserById } from "@/controllers/user";
+import { getUser, getUserById } from "@/MVC/controllers/user";
 import Photos from "@/features/profile/photos/Photos";
 
 interface UserProfilePageProps {

@@ -4,7 +4,7 @@ import AudienceTrigger from "./audience/AudienceTrigger";
 import UserContent from "./compose-area/UserContent";
 import PostAugmenter from "./footer-actions/PostAugmenter";
 import Title from "./components/Title";
-import { getUser } from "@/controllers/user";
+import { getUser } from "@/MVC/controllers/user";
 import { AvatarName } from "@/components/AvatarName";
 import Submit from "./footer-actions/Submit";
 

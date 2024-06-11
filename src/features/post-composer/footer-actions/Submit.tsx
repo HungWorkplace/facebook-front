@@ -3,10 +3,11 @@
 import { Button } from "@/components/ui/custom/button";
 import { useDialogContext } from "../context/dialog-context";
 import axios from "axios";
-import { url } from "@/routes";
+import { url } from "@/MVC/routes";
 import { useRef, useState } from "react";
 import { DialogClose } from "../custom/dialog";
 import { useRouter } from "next/navigation";
+import { headersTokenClient } from "@/MVC/utils/headersTokenClient";
 
 // # Component
 export default function Submit() {
@@ -28,12 +29,10 @@ export default function Submit() {
       }
 
       setIsLoading(true);
-      await axios.post(url.posts.post.createPost, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-        withCredentials: true,
-      });
+
+      const headers = await headersTokenClient();
+
+      await axios.post(url.posts.post.createPost, formData, headers);
 
       setIsLoading(false);
       router.refresh();

@@ -1,5 +1,5 @@
 import NewsFeedItem from "./Item";
-import { getPostsByUserId, getPostsInNewsFeed } from "@/controllers/post";
+import { getPostsByUserId, getPostsInNewsFeed } from "@/MVC/controllers/post";
 
 interface NewsFeedProps {
   profileId?: string;

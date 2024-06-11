@@ -1,4 +1,4 @@
-import { getUser } from "@/controllers/user";
+import { getUser } from "@/MVC/controllers/user";
 import SidebarItem from "../../components/SidebarItem";
 
 interface ShortCutsProps {

@@ -7,8 +7,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsUp as regularLike } from "@fortawesome/free-regular-svg-icons";
 import { faThumbsUp as solidLike } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Interact.module.css";
-import { url } from "@/routes";
+import { url } from "@/MVC/routes";
 import axios from "axios";
+import { headersTokenClient } from "@/MVC/utils/headersTokenClient";
 
 interface InteractProps {
   liked: boolean;
@@ -24,12 +25,11 @@ export default function Interact({ liked, setLiked, postId }: InteractProps) {
   const handleLikeClick = async () => {
     const prevLiked = liked;
     setLiked(!liked);
+
     try {
-      await axios.patch(
-        url.posts.patch.likePost(postId),
-        {},
-        { withCredentials: true },
-      );
+      const headers = await headersTokenClient();
+
+      await axios.patch(url.posts.patch.likePost(postId), {}, headers);
     } catch (error) {
       console.error(error);
       setLiked(prevLiked);

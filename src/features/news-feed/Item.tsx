@@ -1,6 +1,6 @@
 import { Post } from "@/types/model";
 import { ItemProvider } from "./context/item-context";
-import { getCommentsByPostId } from "@/controllers/post";
+import { getCommentsByPostId } from "@/MVC/controllers/post";
 import PostItem from "./card/PostItem";
 
 interface ItemProps {

@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import { z } from "zod";
 import axios from "axios";
-import { url } from "@/routes";
+import { url } from "@/MVC/routes";
 import { User } from "@/types/model";
 
 type LoginState = {

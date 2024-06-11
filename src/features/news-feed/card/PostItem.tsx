@@ -6,7 +6,7 @@ import Reaction from "./interact/Reaction";
 import { CommentProvider } from "./comment/context/comment-context";
 import Comments from "./comment/Comments";
 import CommentBox from "./comment/CommentBox";
-import { getUser } from "@/controllers/user";
+import { getUser } from "@/MVC/controllers/user";
 
 interface PostProps {
   post: Post;

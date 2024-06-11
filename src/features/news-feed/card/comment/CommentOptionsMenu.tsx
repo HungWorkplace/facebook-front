@@ -13,8 +13,9 @@ import {
 import { useCommentContext } from "./context/comment-context";
 import { useRef } from "react";
 import axios from "axios";
-import { url } from "@/routes";
+import { url } from "@/MVC/routes";
 import { Comment } from "@/types/model";
+import { headersTokenClient } from "@/MVC/utils/headersTokenClient";
 
 interface CommentOptionsMenuProps {
   className?: string;
@@ -34,11 +35,11 @@ export default function CommentOptionsMenu({
     closeRef.current?.click();
 
     try {
+      const headers = await headersTokenClient();
+
       await axios.delete(
         url.comments.delete.deleteComment(comment.post, comment._id),
-        {
-          withCredentials: true,
-        },
+        headers,
       );
     } catch (error) {
       console.log(error);

@@ -12,7 +12,7 @@ export default function AuthLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <body className={`${roboto.className}`}>
-      <div className="absolute inset-x-0 top-0 bg-[#ffda6c] py-1 text-center">
+      <div className="w-full bg-[#ffda6c] py-1 text-center text-sm">
         This is a clone Facebook website for educational purposes only.
         Absolutely do not provide real personal information!
       </div>

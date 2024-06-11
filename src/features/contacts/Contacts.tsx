@@ -1,5 +1,5 @@
 import SidebarItem from "@/components/SidebarItem";
-import { getFriends } from "@/controllers/user";
+import { getFriends } from "@/MVC/controllers/user";
 
 interface ContactsProps {
   className?: string;
@@ -11,7 +11,7 @@ export default async function Contacts({ className }: ContactsProps) {
 
   return (
     <aside className={className}>
-      <h1 className="text-2sm mb-2 px-4 font-semibold text-secondary-foreground">
+      <h1 className="mb-2 px-4 text-2sm font-semibold text-secondary-foreground">
         Contacts
       </h1>
 

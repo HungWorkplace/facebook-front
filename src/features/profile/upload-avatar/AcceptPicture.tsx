@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/custom/button";
 import { DialogActions, DialogClose } from "@/components/ui/custom/dialog";
 import { useProfileAvatarContext } from "./context/profile-avatar";
 import { SuggestedImage } from "@/utils/constant";
-import { url } from "@/routes";
+import { url } from "@/MVC/routes";
 import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";

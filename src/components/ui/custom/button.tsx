@@ -73,6 +73,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <Comp
         className={cn(
           buttonVariants({ variant, size, background, hover, className }),
+          { "pointer-events-none": isLoading },
         )}
         ref={ref}
         {...props}

@@ -1,20 +1,8 @@
-import { getToken } from "@/utils/api/getToken";
-import { url } from "@/routes";
+import { url } from "@/MVC/routes";
 import { Friend, Image, User } from "@/types/model";
 import { cache } from "react";
-import { notFound, redirect } from "next/navigation";
-
-export const headersConfig = () => {
-  const token = getToken();
-
-  if (!token) {
-    redirect("/login");
-  }
-
-  return {
-    Authorization: `Bearer ${token}`,
-  };
-};
+import { notFound } from "next/navigation";
+import { headersConfig } from "../utils/headerToken";
 
 export const getUser = cache(async () => {
   const headers = headersConfig();

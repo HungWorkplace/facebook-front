@@ -1,5 +1,5 @@
 import Card from "@/components/layouts/Card";
-import { getImagesByUserId } from "@/controllers/user";
+import { getImagesByUserId } from "@/MVC/controllers/user";
 import { cn } from "@/lib/utils";
 import { type Image as IImage, User } from "@/types/model";
 import Image from "next/image";

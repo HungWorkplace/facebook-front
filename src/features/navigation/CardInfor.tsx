@@ -1,4 +1,4 @@
-import { getUser } from "@/controllers/user";
+import { getUser } from "@/MVC/controllers/user";
 import styles from "./your-profile.module.css";
 import { AvatarName } from "@/components/AvatarName";
 import Link from "next/link";

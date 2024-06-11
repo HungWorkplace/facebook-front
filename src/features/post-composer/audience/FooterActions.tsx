@@ -10,7 +10,8 @@ import { useDialogContext } from "../context/dialog-context";
 import { useState } from "react";
 import { Privacy } from "@/types/model";
 import axios from "axios";
-import { url } from "@/routes";
+import { url } from "@/MVC/routes";
+import { headersTokenClient } from "@/MVC/utils/headersTokenClient";
 
 interface FooterActionsProps {
   radioValue: string;
@@ -32,10 +33,13 @@ export default function FooterActions({ radioValue }: FooterActionsProps) {
     try {
       if (defaultChecked) {
         setLoading(true);
+
+        const headers = await headersTokenClient();
+
         await axios.patch(
           url.users.patch.updatePostPrivacy,
           { postPrivacy: radioValue },
-          { withCredentials: true },
+          headers,
         );
       }
     } catch (error) {

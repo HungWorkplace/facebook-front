@@ -1,4 +1,4 @@
-import { getUser } from "@/controllers/user";
+import { getUser } from "@/MVC/controllers/user";
 import { cn } from "@/lib/utils";
 
 interface UserNameProps {

@@ -22,15 +22,23 @@ module.exports = {
     "@typescript-eslint/ban-ts-comment": "warn",
 
     // variable is defined but never used
-    "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        args: "all",
+        argsIgnorePattern: "^_",
+        caughtErrors: "all",
+        caughtErrorsIgnorePattern: "^_",
+        destructuredArrayIgnorePattern: "^_",
+        varsIgnorePattern: "^_",
+        ignoreRestSiblings: true,
+      },
+    ],
 
     // if-else or code block from "error" to "warn"
     "no-empty": "warn",
 
     // force use const as much as possible
     "prefer-const": "error",
-
-    // allow use _ as unused variable
-    "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
   },
 };

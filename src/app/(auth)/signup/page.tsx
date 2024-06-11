@@ -13,15 +13,17 @@ export default function SignUpPage() {
         className="mx-auto h-24 w-fit"
       />
 
-      <div className="mx-auto w-[27rem] rounded-lg bg-white shadow-lg">
-        <header className="border-b p-4 text-center">
-          <h1 className="text-2xl font-medium">Create a new account</h1>
-          <p className="text-sm text-gray-700">It&apos;s quick and easy.</p>
-        </header>
+      <div className="w-full">
+        <div className="mx-auto max-w-[27rem] rounded-lg bg-white shadow-lg">
+          <header className="border-b p-4 text-center">
+            <h1 className="text-2xl font-medium">Create a new account</h1>
+            <p className="text-sm text-gray-700">It&apos;s quick and easy.</p>
+          </header>
 
-        <main className="p-4">
-          <SignUpForm />
-        </main>
+          <main className="p-4">
+            <SignUpForm />
+          </main>
+        </div>
       </div>
     </div>
   );
