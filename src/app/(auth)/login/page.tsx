@@ -24,7 +24,7 @@ export default function LoginPage() {
               className="mx-auto -mb-3 h-24 w-72"
             />
 
-            <p className="mx-2 text-2xl 900:ml-8">
+            <p className="mx-2 text-xl 584:text-2xl 900:ml-8">
               Facebook helps you connect and share with the people in your life.
             </p>
           </div>

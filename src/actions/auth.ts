@@ -3,27 +3,23 @@
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import { z } from "zod";
-import axios from "axios";
 import { url } from "@/MVC/routes";
 import { User } from "@/types/model";
 
-type LoginState = {
-  errors?: {
-    email?: string[];
-    password?: string[];
-    response?: string;
-  };
-  user?: User;
-};
+type LoginState =
+  | {
+      errors?: {
+        email?: string[];
+        password?: string[];
+        response?: string;
+      };
+    }
+  | undefined;
 
 type ResponseSuccess = {
   message: string;
   user: User;
   token: string;
-};
-
-type ResponseError = {
-  error: string;
 };
 
 const loginSchema = z.object({
@@ -59,18 +55,27 @@ export async function login(
   }
 
   // Get the data from the form state and send it to the server
+  let data: ResponseSuccess;
   try {
-    const res = await axios.post(url.auth.post.login, userTyping.data);
+    // const res = await axios.post(url.auth.post.login, userTyping.data);
 
-    // if it not success
-    if (res.status !== 200) {
-      const data = res.data as ResponseError;
+    const res = await fetch(url.auth.post.login, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userTyping.data),
+    });
 
-      return { errors: { response: data.error } };
+    if (!res.ok) {
+      return {
+        errors: {
+          response: "Email or password is incorrect. Please try again.",
+        },
+      };
     }
 
-    // if it success, user is logged in and we have the user data
-    const data = res.data as ResponseSuccess;
+    data = await res.json();
 
     // set token to the cookie
     const day = process.env.JWT_EXPIRES_DAY || 30;
@@ -81,10 +86,16 @@ export async function login(
       secure: true,
       sameSite: "none",
     });
-
-    return { user: data.user };
   } catch (error) {
+    if (error instanceof Error) {
+      return { errors: { response: error.message } };
+    }
     return { errors: { response: "An error occurred. Please try again." } };
+  }
+
+  // Redirect to the home page
+  if (data.user) {
+    redirect("/");
   }
 }
 

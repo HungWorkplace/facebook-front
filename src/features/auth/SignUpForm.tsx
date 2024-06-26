@@ -66,18 +66,20 @@ export default function SignUpForm() {
     try {
       setIsLoading(true);
 
-      const res = await axios.post<ResponseType>(url.auth.post.signup, data, {
-        withCredentials: true,
-      });
+      const res = await axios.post<ResponseType>(url.auth.post.signup, data);
 
       if (res.data.error) {
         setResError(res.data.error);
         return;
       }
 
-      if (res.data.user) {
-        router.push("/");
-      }
+      await axios.get("/api/set-token", {
+        params: {
+          token: res.data.token,
+        },
+      });
+
+      router.push("/");
     } catch (error) {
       console.error(error);
       setResError("An error occurred. Please try again.");

@@ -29,7 +29,7 @@ export default function CreateButton() {
         <PopoverContent
           avoidCollisions={false}
           align="end"
-          className="w-[22.5rem] rounded-lg border-none p-2 pt-3 text-black shadow-popover"
+          className="w-72 rounded-lg border-none p-2 pt-3 text-black shadow-popover 584:w-[22.5rem]"
         >
           <CreateItem />
         </PopoverContent>

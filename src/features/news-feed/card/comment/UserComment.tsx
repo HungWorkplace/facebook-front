@@ -6,6 +6,7 @@ import { CommentState } from "./context/comment-context";
 import CommentStatus from "./CommentStatus";
 import CommentOptionsMenu from "./CommentOptionsMenu";
 import { useUser } from "@/context/user-context";
+import VerifyIcon from "@/components/svg/VerifyIcon";
 
 interface UserCommentProps {
   className?: string;
@@ -21,10 +22,11 @@ export default function UserComment({ className, comment }: UserCommentProps) {
       <div className="flex items-center gap-1">
         <div className="rounded-2xl bg-comment-background px-3 py-2">
           {/* Username */}
-          <div className="cursor-pointer text-xs font-semibold hover:underline">
+          <div className="flex cursor-pointer items-baseline gap-1.5 text-xs font-semibold hover:underline">
             <Link href={`users/${comment.author._id}`}>
               {comment.author.fullName}
             </Link>
+            {comment.author.isVerified && <VerifyIcon size={12} />}
           </div>
           {/* Content */}
           <div className="">{comment.content}</div>

@@ -41,7 +41,7 @@ export default function LikeClick({
   return (
     <span
       onClick={handleLikeClick}
-      className={cn("cursor-pointer font-bold hover:underline", {
+      className={cn("cursor-pointer select-none font-bold hover:underline", {
         "text-primary": isLiked,
       })}
     >

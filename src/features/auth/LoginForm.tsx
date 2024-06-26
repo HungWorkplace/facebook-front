@@ -3,7 +3,6 @@
 import { cn } from "@/lib/utils";
 import { useFormState, useFormStatus } from "react-dom";
 import * as actions from "@/actions/auth";
-import { useRouter } from "next/navigation";
 import { InputField } from "./login/InputField";
 import { Button } from "@/components/ui/custom/button";
 
@@ -13,16 +12,10 @@ interface LoginFormProps {
 
 export default function LoginForm({ className }: LoginFormProps) {
   const [formState, action] = useFormState(actions.login, { errors: {} });
-  const status = useFormStatus();
-  const router = useRouter();
 
-  const emailError = formState.errors?.email;
-  const passwordError = formState.errors?.password;
-  const responseError = formState.errors?.response;
-
-  if (formState.user) {
-    router.push("/");
-  }
+  const emailError = formState?.errors?.email;
+  const passwordError = formState?.errors?.password;
+  const responseError = formState?.errors?.response;
 
   return (
     <form action={action} className={cn("", className)}>
@@ -46,13 +39,22 @@ export default function LoginForm({ className }: LoginFormProps) {
         className="mt-3"
       />
 
-      <Button
-        type="submit"
-        isLoading={status.pending}
-        className="mt-4 h-12 w-full text-xl font-semibold"
-      >
-        Log in
-      </Button>
+      <ButtonSubmit />
     </form>
+  );
+}
+
+// Must split the Button when using useFormStatus
+function ButtonSubmit() {
+  const { pending } = useFormStatus();
+
+  return (
+    <Button
+      type="submit"
+      isLoading={pending}
+      className="mt-4 h-12 w-full text-xl font-semibold"
+    >
+      Log in
+    </Button>
   );
 }

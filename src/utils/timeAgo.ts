@@ -1,4 +1,6 @@
-import { DateTime } from "luxon";
+import { DateTime, Settings } from "luxon";
+
+Settings.defaultLocale = "en";
 
 export function timeAgo(createdAt: string) {
   const date = DateTime.fromISO(createdAt);

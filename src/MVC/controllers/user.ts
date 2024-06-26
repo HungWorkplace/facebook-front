@@ -1,10 +1,10 @@
 import { url } from "@/MVC/routes";
 import { Friend, Image, User } from "@/types/model";
-import { cache } from "react";
+// import { cache } from "react";
 import { notFound } from "next/navigation";
 import { headersConfig } from "../utils/headerToken";
 
-export const getUser = cache(async () => {
+export const getUser = async () => {
   const headers = headersConfig();
 
   const response = await fetch(url.users.get.getMe, {
@@ -17,9 +17,9 @@ export const getUser = cache(async () => {
 
   const res = (await response.json()) as { user: User };
   return res.user;
-});
+};
 
-export const getUserById = cache(async (userId: string) => {
+export const getUserById = async (userId: string) => {
   const response = await fetch(url.users.get.getUserById(userId));
 
   if (!response.ok) {
@@ -28,9 +28,9 @@ export const getUserById = cache(async (userId: string) => {
 
   const res = (await response.json()) as { user: User };
   return res.user;
-});
+};
 
-export const getFriends = cache(async () => {
+export const getFriends = async () => {
   const headers = headersConfig();
 
   try {
@@ -44,9 +44,9 @@ export const getFriends = cache(async () => {
     console.error(error);
     return [];
   }
-});
+};
 
-export const getImagesByUserId = cache(async (userId: string) => {
+export const getImagesByUserId = async (userId: string) => {
   const response = await fetch(url.users.get.getImagesByUserId(userId));
 
   if (!response.ok) {
@@ -55,4 +55,4 @@ export const getImagesByUserId = cache(async (userId: string) => {
 
   const res = (await response.json()) as { images: Image[] };
   return res.images;
-});
+};

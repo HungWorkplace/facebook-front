@@ -14,7 +14,11 @@ export default function PhotoPost() {
   };
 
   return (
-    <Button onClick={handleClick} variant={"ghost"} className="mt-3 ">
+    <Button
+      onClick={handleClick}
+      variant={"ghost"}
+      className="mt-3 select-none "
+    >
       <div className="flex items-center gap-2">
         <Image
           src={"/gallery.svg"}

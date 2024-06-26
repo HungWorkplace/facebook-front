@@ -43,7 +43,7 @@ export default function Interact({ liked, setLiked, postId }: InteractProps) {
         <div
           onClick={handleLikeClick}
           className={cn(
-            "flex h-full flex-1 cursor-pointer items-center justify-center gap-2 rounded hover:bg-hover-item-radio",
+            "flex h-full flex-1 cursor-pointer select-none items-center justify-center gap-2 rounded hover:bg-hover-item-radio",
             { "text-[#0561f2]": liked },
           )}
         >
@@ -56,7 +56,7 @@ export default function Interact({ liked, setLiked, postId }: InteractProps) {
         </div>
 
         {/* Comment button*/}
-        <div className="flex h-full flex-1 cursor-pointer items-center justify-center gap-2 rounded hover:bg-hover-item-radio">
+        <div className="flex h-full flex-1 cursor-pointer select-none items-center justify-center gap-2 rounded hover:bg-hover-item-radio">
           <FaRegComment className="size-5 scale-x-[-1] transform" />
           <span onClick={() => triggerGoToComment()} className="font-semibold">
             Comment
