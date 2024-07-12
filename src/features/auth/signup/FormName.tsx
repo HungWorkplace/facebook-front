@@ -1,5 +1,5 @@
 import { FormField } from "@/components/ui/form";
-import { type FormSchema } from "@/lib/FormSchema";
+import { type FormSchema } from "@/lib/formSchema";
 import { type Control } from "react-hook-form";
 import { InputField } from "./InputField";
 

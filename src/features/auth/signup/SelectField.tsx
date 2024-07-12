@@ -6,7 +6,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { FormSchema } from "@/lib/FormSchema";
+import { FormSchema } from "@/lib/formSchema";
 import { type ControllerRenderProps } from "react-hook-form";
 
 interface SelectFieldType {

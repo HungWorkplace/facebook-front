@@ -4,7 +4,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { FormSchema } from "@/lib/FormSchema";
+import { FormSchema } from "@/lib/formSchema";
 import { type ControllerRenderProps } from "react-hook-form";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { buttonVariants } from "@/components/ui/custom/button";

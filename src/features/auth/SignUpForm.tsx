@@ -4,7 +4,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/custom/button";
 import { Form, FormField } from "@/components/ui/form";
-import { FormSchema } from "@/lib/FormSchema";
 import RadioField from "./signup/RadioField";
 import Link from "next/link";
 import axios from "axios";
@@ -16,6 +15,7 @@ import { FormBirth } from "./signup/FormBirth";
 import FormCredentials from "./signup/FormCredentials";
 import { User } from "@/types/model";
 import { url } from "@/MVC/routes";
+import { FormSchema } from "@/lib/formSchema";
 
 type ResponseType = {
   message?: string;
