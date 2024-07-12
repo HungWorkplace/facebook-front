@@ -5,6 +5,7 @@ live demo: https://phobo.vercel.app/
 ## Getting Started
 
 ```bash
+npm install
 npm run build
 npm run start
 ```
