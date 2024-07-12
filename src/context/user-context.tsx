@@ -15,29 +15,6 @@ interface UserContextProps {
 const UserContext = createContext<User | null>(null);
 
 const UserProvider = ({ children, user }: UserContextProps) => {
-  // const [user, setUser] = useState<User | null>(null);
-
-  // useEffect(() => {
-  //   // Fetch the user from the API
-  //   const fetchUser = async () => {
-  //     try {
-  //       const response = await axios.get<ResponseValue>(url.users.get.getMe, {
-  //         withCredentials: true,
-  //       });
-
-  //       setUser(response.data.user);
-  //     } catch (error) {
-  //       console.error("Error fetching user", error);
-  //     }
-  //   };
-
-  //   fetchUser();
-  // }, []);
-
-  // const value = {
-  //   user,
-  // };
-
   return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
 };
 

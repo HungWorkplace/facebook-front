@@ -14,7 +14,7 @@ export default function Navigation() {
       {/* left side */}
       <div className="flex h-full items-center">
         <div className="flex gap-2">
-          <Link href={"/"}>
+          <Link href={"/"} prefetch={true}>
             <FaFacebook size={40} className="text-primary" />
           </Link>
           {/* <Search /> */}

@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import Placeholder from "@tiptap/extension-placeholder";
 import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
+import DOMPurify from "dompurify";
 
 interface ContentEditableProps {
   className?: string;
@@ -41,7 +42,9 @@ export default function ContentEditable({
         return;
       }
 
-      onChange(editor.getHTML());
+      const cleanHTML = DOMPurify.sanitize(editor.getHTML());
+
+      onChange(cleanHTML);
     },
     autofocus: autoFocus,
   });

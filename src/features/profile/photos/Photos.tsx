@@ -23,7 +23,7 @@ export default async function Photos({ className, user }: PhotosProps) {
           <h2 className="text-xl font-bold">Photos</h2>
         </header>
         <main>
-          <div className="grid grid-cols-3 gap-1.5 overflow-hidden rounded-md">
+          <div className="grid grid-cols-3 gap-1.5 overflow-hidden">
             <ImageList photos={limitedImages} />
           </div>
         </main>

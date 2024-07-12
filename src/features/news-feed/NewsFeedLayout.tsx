@@ -4,6 +4,8 @@ import { NewsFeedProvider } from "./context/news-feed-context";
 import NewsFeed from "./NewsFeed";
 import { User } from "@/types/model";
 import { getUser } from "@/MVC/controllers/user";
+import { Suspense } from "react";
+import NewsFeedSkeleton from "./NewsFeedSkeleton";
 
 interface NewsFeedProps {
   className?: string;
@@ -19,19 +21,13 @@ export async function NewsFeedLayout({
 }: NewsFeedProps) {
   const user = await getUser();
 
-  const rendered = () => {
-    if (isNewsFeed) {
-      return <CardComposer />;
-    } else if (userProfile?._id === user._id) {
-      return <CardComposer />;
-    }
-  };
-
   return (
     <div className={cn("flex flex-col gap-4", className)}>
-      {rendered()}
+      {(isNewsFeed || userProfile?._id === user._id) && <CardComposer />}
       <NewsFeedProvider>
-        <NewsFeed profileId={userProfile?._id} />
+        <Suspense fallback={<NewsFeedSkeleton />}>
+          <NewsFeed profileId={userProfile?._id} />
+        </Suspense>
       </NewsFeedProvider>
     </div>
   );

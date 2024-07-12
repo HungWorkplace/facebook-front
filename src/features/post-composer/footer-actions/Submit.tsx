@@ -6,15 +6,15 @@ import axios from "axios";
 import { url } from "@/MVC/routes";
 import { useRef, useState } from "react";
 import { DialogClose } from "../custom/dialog";
-import { useRouter } from "next/navigation";
 import { headersTokenClient } from "@/MVC/utils/headersTokenClient";
+import { useToast } from "@/components/ui/use-toast";
 
 // # Component
 export default function Submit() {
   const { content, setContent, photoFile, privacy } = useDialogContext();
   const [isLoading, setIsLoading] = useState(false);
   const closeRef = useRef<HTMLButtonElement>(null);
-  const router = useRouter();
+  const { toast } = useToast();
 
   const handleSubmit = async () => {
     if (content.length === 0) return console.log("Please enter a content");
@@ -34,8 +34,11 @@ export default function Submit() {
 
       await axios.post(url.posts.post.createPost, formData, headers);
 
+      toast({
+        description: "Your post has been successfully created!",
+      });
+
       setIsLoading(false);
-      router.refresh();
       setContent("");
       closeRef.current?.click();
     } catch (error) {

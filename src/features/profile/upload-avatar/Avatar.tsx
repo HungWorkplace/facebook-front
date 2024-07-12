@@ -13,6 +13,8 @@ export default function Avatar() {
       alt="avatar"
       width={168}
       height={168}
+      placeholder="blur"
+      blurDataURL="/no-avatar.jpg"
       className="aspect-square rounded-full border-4 border-white object-cover"
     />
   );

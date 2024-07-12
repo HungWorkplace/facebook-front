@@ -8,6 +8,8 @@ import { url } from "@/MVC/routes";
 import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { headersTokenClient } from "@/MVC/utils/headersTokenClient";
+import axios from "axios";
 
 // # Component
 export default function AcceptPicture() {
@@ -33,13 +35,15 @@ export default function AcceptPicture() {
     try {
       // Send a POST request with the formData to the server
       setIsLoading(true);
-      const response = await fetch(url.users.post.uploadAvatar, {
-        method: "POST",
-        body: formData,
-        credentials: "include",
-      });
+      const headers = await headersTokenClient();
 
-      if (response.ok) {
+      const response = await axios.post(
+        url.users.post.uploadAvatar,
+        formData,
+        headers,
+      );
+
+      if (response.status === 200) {
         setIsChose(false);
         closeRef.current?.click();
         router.refresh();

@@ -24,7 +24,7 @@ export default function LikeClick({
 
   useEffect(() => {
     setIsLiked(likes.includes(user._id));
-  }, [likes]);
+  }, [user._id, likes]);
 
   const handleLikeClick = async () => {
     changeLikes(isLiked ? "remove" : "add", user._id);

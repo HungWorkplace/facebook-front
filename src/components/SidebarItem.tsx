@@ -11,7 +11,7 @@ interface SidebarItemProps {
 export default async function SidebarItem({ user }: SidebarItemProps) {
   return (
     <ItemSideBar.Wrap>
-      <Link href={`/users/${user.id}`}>
+      <Link href={`/users/${user.id}`} prefetch={true}>
         <ItemSideBar.Content>
           <AvatarName.Root user={user} className="gap-3">
             <AvatarName.Image className="size-7" />

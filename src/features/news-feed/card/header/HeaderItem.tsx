@@ -6,8 +6,8 @@ import { PopoverClose } from "./custom/popover";
 import { useRef } from "react";
 import axios from "axios";
 import { url } from "@/MVC/routes";
-import { useRouter } from "next/navigation";
 import { headersTokenClient } from "@/MVC/utils/headersTokenClient";
+import { useRouter } from "next/navigation";
 
 interface ItemProps {
   className?: string;
@@ -26,7 +26,7 @@ export function DeletePost({ className, postId }: ItemProps) {
 
       await axios.delete(url.posts.delete.deletePost(postId), headers);
 
-      router.refresh();
+      router.push("/");
     } catch (error) {
       console.log(error);
     }

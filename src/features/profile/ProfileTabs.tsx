@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
 import { AvatarName } from "@/components/AvatarName";
 import { useProfileContext } from "@/context/profile";
+import { debounce } from "lodash";
 
 interface ProfileTabsProps {
   className?: string;
@@ -16,7 +17,7 @@ export default function ProfileTabs({ className }: ProfileTabsProps) {
   const { userProfile } = useProfileContext();
 
   useEffect(() => {
-    const scrollListener = () => {
+    const scrollListener = debounce(() => {
       if (!tabsRef.current) return;
 
       if (window.scrollY >= tabsRef.current.offsetTop - 56) {
@@ -24,7 +25,7 @@ export default function ProfileTabs({ className }: ProfileTabsProps) {
       } else {
         setFreeze(false);
       }
-    };
+    }, 50);
 
     window.addEventListener("scroll", scrollListener);
 

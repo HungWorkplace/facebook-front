@@ -11,7 +11,7 @@ export default function Content({ post }: ContentProps) {
     <div className="pt-2">
       <div
         dangerouslySetInnerHTML={{ __html: post.content }}
-        className="prose px-4 text-2xs"
+        className="px-4 text-2xs"
       />
       {post.images.length > 0 && <Images post={post} />}
     </div>

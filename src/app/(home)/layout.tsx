@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 import Navigation from "@/features/navigation/Navigation";
-import { Toaster } from "@/components/ui/custom/toaster";
 import { ZustandProvider } from "@/stores/zustand/store-provider";
 import { UserProvider } from "@/context/user-context";
 import { getUser } from "@/MVC/controllers/user";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Facebook",

@@ -48,6 +48,7 @@ function Inactive({ href, children, className }: InactiveProps) {
   return (
     <Link
       href={href}
+      prefetch={true}
       className={cn(
         buttonVariants({ variant: "ghost" }),
         defaultClassName,
@@ -70,6 +71,7 @@ function Active({ href, children, className }: ActiveProps) {
   return (
     <Link
       href={href}
+      prefetch={true}
       className={cn(
         buttonVariants({ variant: "ghost" }),
         defaultClassName,

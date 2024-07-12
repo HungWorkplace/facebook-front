@@ -41,7 +41,7 @@ const loginSchema = z.object({
 
 // Must have a return type of Promise<LoginState>
 export async function login(
-  formState: LoginState,
+  _formState: LoginState,
   formData: FormData,
 ): Promise<LoginState> {
   // use safeParse
@@ -57,8 +57,6 @@ export async function login(
   // Get the data from the form state and send it to the server
   let data: ResponseSuccess;
   try {
-    // const res = await axios.post(url.auth.post.login, userTyping.data);
-
     const res = await fetch(url.auth.post.login, {
       method: "POST",
       headers: {

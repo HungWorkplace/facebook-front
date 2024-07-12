@@ -21,7 +21,7 @@ export default function Reaction({ post, user }: ReactionProps) {
 
     setLikedUserIds(post.likes);
     setLiked(post.likes.includes(user.id));
-  }, [post.likes]);
+  }, [user, post.likes]);
 
   // When liked state changes, add or remove the user id from the likedUserIds
   useEffect(() => {
@@ -32,7 +32,7 @@ export default function Reaction({ post, user }: ReactionProps) {
     } else {
       setLikedUserIds((prev) => prev.filter((id) => id !== user.id));
     }
-  }, [liked]);
+  }, [user, liked]);
 
   return (
     <div className="px-4">
